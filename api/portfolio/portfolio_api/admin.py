@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from portfolio_api.models import Wording
+
+admin.site.register(Wording)

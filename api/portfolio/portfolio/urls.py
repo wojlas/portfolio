@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from portfolio_api.views import WordingsView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/snippets/<str:lang>', WordingsView.as_view()),
+    # path('projects/', include('projects.urls')),
 ]
