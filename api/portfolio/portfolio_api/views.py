@@ -2,8 +2,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from portfolio_api.models import Wording
-from portfolio_api.serializers import SnippetSerializer
+from portfolio_api.models import Frameworks, Wording, Languages
+from portfolio_api.serializers import FrameworksSerializer, LanguagesSerializer, SnippetSerializer
 
 class WordingsView(APIView):
   # get snippets in selected language
@@ -28,5 +28,30 @@ class WordingsView(APIView):
       return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
+class LanguagesView(APIView):
+  # get list of all languages
+
+  def get(self, request):
+    try: 
+      languages = Languages.objects.all()
+      serializer = LanguagesSerializer(languages, many=True)
+      
+      return Response(data=serializer.data, status=status.HTTP_200_OK)
+    
+    except Languages.DoesNotExist:
+      return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+class FrameworksView(APIView):
+  # get list of all frameworks
+
+  def get(self, request):
+    try: 
+      frameworks = Frameworks.objects.all().prefetch_related('languages')
+      serializer = FrameworksSerializer(frameworks, many=True)
+      
+      return Response(data=serializer.data, status=status.HTTP_200_OK)
+    
+    except Languages.DoesNotExist:
+      return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
 
