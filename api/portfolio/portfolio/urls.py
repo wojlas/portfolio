@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from portfolio_api.views import FrameworksView, LanguagesView, WordingsView
+from portfolio_api.views import FrameworksView, LanguagesView, WordingsView, AboutView
 from projects.views import ProjectsView, ProjectDetailsView
 
 urlpatterns = [
@@ -11,4 +11,5 @@ urlpatterns = [
     path('api/frameworks', FrameworksView.as_view()),
     path('api/projects', ProjectsView.as_view()),
     path('api/projects/<int:id>', ProjectDetailsView.as_view()),
+    path('api/about/<str:lang>', AboutView.as_view()),
 ]

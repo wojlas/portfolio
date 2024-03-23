@@ -54,4 +54,19 @@ class FrameworksView(APIView):
     except Languages.DoesNotExist:
       return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
+class AboutView(APIView):
+  # get method for about me view
+
+  def get(self, request, lang):
+    if lang not in ['pl', 'eng']:
+      return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    resp_message = {}
+
+    if (lang == 'eng'):
+      resp_message['message'] = 'about me will be available soon...'
+    else:
+      resp_message['message'] = 'informacje \'o mnie\' będą dostępne wkrótce...'
+    
+    return Response(status=status.HTTP_200_OK, data=resp_message)
 
