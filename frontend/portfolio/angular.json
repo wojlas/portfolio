@@ -18,7 +18,8 @@
           "skipTests": true
         },
         "@schematics/angular:guard": {
-          "skipTests": true
+          "skipTests": true,
+          "functional": true
         },
         "@schematics/angular:module": {
           "skipTests": true
@@ -28,6 +29,14 @@
         },
         "@schematics/angular:service": {
           "skipTests": true
+        },
+        "@schematics/angular:resolver": {
+          "skipTests": true,
+          "functional": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true,
+          "functional": true
         }
       },
       "root": "",

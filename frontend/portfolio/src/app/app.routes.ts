@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { snippetsResolver } from './core/resolvers/snippets.resolver';
 
 export const routes: Routes = [
   {
     path: '',
     component: AppComponent,
+    resolve: { snippets: snippetsResolver },
     children: [
       {
         path: 'about',

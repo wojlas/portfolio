@@ -15,12 +15,10 @@ class WordingsView(APIView):
     try: 
       snippets = Wording.objects.all()
       serializer = SnippetSerializer(snippets, many=True)
-      response_obj = []
+      response_obj = {}
 
       for snippet in serializer.data:
-        response_obj.append({
-          snippet['key']: snippet[f'lang_{lang}']
-        })
+        response_obj[snippet['key']] = snippet[f'lang_{lang}']
 
       return Response(data=response_obj, status=status.HTTP_200_OK)
 

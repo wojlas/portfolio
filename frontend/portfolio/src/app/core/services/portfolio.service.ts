@@ -1,0 +1,18 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PortfolioService {
+  private _lang: 'pl' | 'en';
+
+  constructor(private readonly _api: HttpClient) {
+    this._lang = (localStorage.getItem('portfolio_page_lang') as 'pl' | 'en') || 'pl';
+   }
+
+  public getSnippets(): Observable<Record<string, string>> {
+    return this._api.get<Record<string, string>>('api/snippets/' + this._lang);
+  }
+}
