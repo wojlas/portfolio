@@ -1,0 +1,50 @@
+@import './_display';
+@import './_spacing';
+@import './colors';
+@import './fonts';
+
+.pointer {
+  cursor: pointer;
+}
+
+.default {
+  cursor: default;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wrap {
+  white-space: wrap;
+  flex-wrap: wrap;
+}
+
+.no-wrap {
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.disabled {
+  opacity: .4;
+  pointer-events: none;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.no-select {
+  user-select: none;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute
+}

@@ -1,0 +1,30 @@
+@mixin base {
+  font-family: sans-serif;
+  color: #212F3D;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -.2;
+}
+
+.bold {
+  @include base;
+  font-weight: 500;
+}
+
+.bolder {
+  @include base;
+  font-weight: 700;
+}
+
+.small {
+  @include base;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.big {
+  @include base;
+  font-size: 19px;
+  line-height: 21px;
+}
