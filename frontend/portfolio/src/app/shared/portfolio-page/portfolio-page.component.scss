@@ -1,0 +1,9 @@
+.page {
+  &__menu {
+    flex: 0 0 25%;
+  }
+
+  &__content {
+    flex: 1;
+  }
+}

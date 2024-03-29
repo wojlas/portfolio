@@ -9,7 +9,7 @@ export class PortfolioService {
   private _lang: 'pl' | 'en';
 
   constructor(private readonly _api: HttpClient) {
-    this._lang = (localStorage.getItem('portfolio_page_lang') as 'pl' | 'en') || 'pl';
+    this._lang = (JSON.parse(localStorage.getItem('selectedLanguage') ?? '"pl"') as 'pl' | 'en') || 'pl';
    }
 
   public getSnippets(): Observable<Record<string, string>> {

@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { snippetsResolver } from './core/resolvers/snippets.resolver';
+import { PortfolioPageComponent } from './shared/portfolio-page/portfolio-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: PortfolioPageComponent,
     resolve: { snippets: snippetsResolver },
     children: [
       {

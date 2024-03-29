@@ -9,6 +9,9 @@ class WordingsView(APIView):
   # get snippets in selected language
 
   def get(self, request, lang):
+    if lang == 'en':
+      lang = 'eng'
+
     if lang not in ['pl', 'eng']:
       return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
     
