@@ -1,0 +1,5 @@
+<div class="b-grey-1 d-inline-flex px-16 py-4 w-100">
+  @for (path of activeRoute$ | async; track $index; let last = $last) {
+    <span class="{{ last ? 'bold' : ''}} pointer">{{ path | titlecase }} {{ last ? '' : '/' }}</span>
+  }
+</div>
