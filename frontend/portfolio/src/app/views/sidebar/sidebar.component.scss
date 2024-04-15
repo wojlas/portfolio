@@ -1,6 +1,22 @@
 .sidebar {
+  transition-duration: .3s;
+  
   &__nav {
     width: calc(100% - 40px);
     min-width: 110px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: auto;
+    justify-content: flex-start;
+
+    &__nav, &__lang {
+      width: auto;
+    }
   }
 }
