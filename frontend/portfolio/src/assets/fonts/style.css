@@ -25,10 +25,13 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-times:before {
+.icon-pencil:before {
+  content: "\e905";
+}
+.icon-cross:before {
   content: "\ea0f";
 }
-.icon-check:before {
+.icon-checkmark:before {
   content: "\ea10";
 }
 .icon-arrow-right:before {
@@ -43,6 +46,6 @@
 .icon-linkedin:before {
   content: "\eac9";
 }
-.icon-pdf:before {
+.icon-file-pdf:before {
   content: "\eadf";
 }

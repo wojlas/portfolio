@@ -1,1 +1,5 @@
-<p>projects works!</p>
+<div class="d-flex flex-column p-16 gap-16">
+  @for (project of projects(); track project.id) {
+    <app-project-card [project]="project"/>
+  }
+</div>

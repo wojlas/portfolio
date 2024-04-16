@@ -1,5 +1,6 @@
 .sidebar {
   transition-duration: .3s;
+  padding-top: 34px;
   
   &__nav {
     width: calc(100% - 40px);
@@ -14,6 +15,7 @@
     flex-wrap: wrap;
     height: auto;
     justify-content: flex-start;
+    padding-top: 16px;
 
     &__nav, &__lang {
       width: auto;

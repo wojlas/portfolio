@@ -1,0 +1,35 @@
+@import '../../../assets/styles/_colors.scss';
+
+.project-card {
+  border: 2px solid var(--grey-4);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+
+  & > div > i{
+    transition-duration: .3s;
+    
+    &:hover {
+      color: var(--blue-grey-3);
+      position: relative;
+      margin-bottom: 2px;;
+    }
+  }
+
+  &__section {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 16px;
+    gap: 4px;
+    user-select: none;
+    cursor: default;
+  
+    &__value {
+      display: inline-flex;
+      gap: 4px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
