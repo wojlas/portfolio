@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { ProjectsComponent } from "./projects.component";
 import { projectsPageResolver } from "../../core/resolvers/projects-page.resolver";
+import { projectDetailsResolver } from "../../core/resolvers/project-details.resolver";
 
 export const routes: Routes = [
   {
@@ -8,14 +9,15 @@ export const routes: Routes = [
     component: ProjectsComponent,
     resolve: { data: projectsPageResolver }
   },
-  {
-    path: ':params',
-    component: ProjectsComponent
-  },
   // {
-  //   path: ':id',
-  //   component: 
-  // }
+  //   path: ':params',
+  //   component: ProjectsComponent
+  // },
+  {
+    path: ':id',
+    loadComponent: () => import('../../pages/project-details/project-details.component').then(c => c.ProjectDetailsComponent),
+    resolve: { data: projectDetailsResolver }
+  },
   {
     path: '**',
     redirectTo: ''

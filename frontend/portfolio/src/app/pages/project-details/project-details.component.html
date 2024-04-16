@@ -1,0 +1,36 @@
+<div class="d-flex flex-column w-100 h-100 p-16">
+  <div class="d-inline-flex align-items-center justify-content-between w-100 py-8 px-16">
+    <button>
+      <i class="icon-arrow-left"></i>
+      <span class="f-grey-5">{{ 'backToList' | translate }}</span>
+    </button>
+    <i class="icon-github pointer bolder"></i>
+  </div>
+  <div class="d-flex flex-column w-100 overflow-auto py-8 gap-row-16 position-relative">
+    <div class="position-sticky py-8 px-16"><h3>{{ project().name }}</h3></div>
+    <app-project-details-section [sectionTitle]="'basicInformations' | translate">
+      <div class="d-flex flex-column w-100 py-16">
+        <div class="section">
+          <span class="f-grey-4">{{ 'languages' | translate }}</span>
+          <div class="section__value">
+            @for (language of project().language; track $index) {
+              <span class="f-grey-5">{{ language.name | titlecase }}</span>
+            }
+          </div>
+        </div>
+        <div class="section">
+          <span class="f-grey-4">{{ 'frameworks' | translate }}</span>
+          <div class="section__value">
+            @for (framework of project().framework; track $index) {
+              <span class="f-grey-5">{{ framework.name | titlecase }}</span>
+            }
+          </div>
+        </div>
+        <div class="section">
+          <span class="f-grey-4">{{ 'releaseDate' | translate }}</span>
+          <span class="section__value f-grey-5">{{ project().release_date }}</span>
+        </div>
+      </div>
+    </app-project-details-section>
+  </div>
+</div>

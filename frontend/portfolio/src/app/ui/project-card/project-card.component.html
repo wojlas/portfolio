@@ -1,7 +1,7 @@
 <div class="d-flex flex-column w-100 b-radius-4 b-grey-4 f-grey-5 project-card">
   <div class="d-inline-flex align-items-center justify-content-between gap-4 px-16 py-8 nowrap ellipsis pointer w-100">
     <span class="f-grey-5">{{ project().name | titlecase }}</span>
-    <i class="icon-pencil f-grey-1" [routerLink]=""></i>
+    <i class="icon-pencil f-grey-1" (click)="navigateTo()"></i>
   </div>
   <div class="project-card__section">
     <span class="f-grey-4">{{ 'languages' | translate }}</span>

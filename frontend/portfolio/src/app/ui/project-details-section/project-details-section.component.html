@@ -1,0 +1,8 @@
+<div class="d-flex flex-column w-100">
+  <div class="header p-16 bolder b-grey-4 f-grey-1 pointer position-sticky no-select" (click)="isOpen.set(!isOpen())">
+    <h3>{{ sectionTitle() }}</h3>
+  </div>
+  <div class="section-wrapper px-16 overflow-hidden" [class.closed]="!isOpen()">
+    <ng-content></ng-content>
+  </div>
+</div>

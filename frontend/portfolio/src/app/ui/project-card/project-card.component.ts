@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { ISimpleProject } from '../../core/interfaces';
 import { TitleCasePipe } from '@angular/common';
 import { TranslatePipe } from "../../core/pipes/translate.pipe";
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-project-card',
@@ -13,5 +13,12 @@ import { RouterModule } from '@angular/router';
     imports: [TitleCasePipe, TranslatePipe, RouterModule]
 })
 export class ProjectCardComponent {
-  project = input.required<ISimpleProject>();
+  public project = input.required<ISimpleProject>();
+
+  private readonly _router = inject(Router);
+  private readonly _activatedRoute = inject(ActivatedRoute);
+
+  public navigateTo(): void {
+    this._router.navigate([this.project().id.toString()], { relativeTo: this._activatedRoute}).then();
+  }
 }
