@@ -12,6 +12,8 @@ class Projects(models.Model):
   framework = models.ManyToManyField('portfolio_api.Frameworks', through='ProjectFrameworks', blank=False)
   release_date = models.DateField(null=True, blank=True)
   repository_link = models.URLField(null=True, blank=True)
+  description_pl = models.TextField(null=True, blank=True)
+  description_en = models.TextField(null=True, blank=True)
 
   def __str__(self):
     return f'{self.name}'

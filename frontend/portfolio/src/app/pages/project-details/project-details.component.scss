@@ -1,5 +1,39 @@
 @import '../../../assets/styles/mixins';
+@import '../../../assets/styles/colors';
+@import '../../../assets/styles/fonts';
 
 .section {
   @include project-section();
+}
+
+.back-btn {
+  @include base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid var(--blue-grey-4);
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--grey-2);
+  }
+
+  &:active {
+    box-shadow: 0 0 1px 1px var(--blue-grey-1);
+  }
+}
+
+.gh-icon {
+  font-size: 22px;
+  line-height: 24px;
+  transition-duration: .3s;
+  
+  &:hover {
+    transform: scale(1.2);
+  }
 }

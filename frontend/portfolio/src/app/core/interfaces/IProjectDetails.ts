@@ -7,4 +7,5 @@ export interface IProjectDetails extends IIdAndName {
   language: IIdNameAndType[];
   release_date: string;
   repository_link: string;
+  description: string;
 }

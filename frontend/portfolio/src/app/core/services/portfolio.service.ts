@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { IIdNameAndLanguage, IIdNameAndType, ISimpleProject } from '../interfaces';
+import { Observable, map } from 'rxjs';
+import { IIdNameAndLanguage, IIdNameAndType, IProjectDetails, ISimpleProject } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,22 @@ export class PortfolioService {
     return this._api.get<ISimpleProject[]>('api/projects');
   }
 
-  public getProjectDetails(id: number): Observable<any> {
-    return this._api.get<any>(`api/projects/${ id }`);
+  public getProjectDetails(id: number): Observable<IProjectDetails> {
+    return this._api.get<IProjectDetails>(`api/projects/${ id }`).pipe(map((res: any) => {
+      switch (this._lang) {
+        case 'pl':
+          res.description = res.description_pl;
+          break;
+        case 'en':
+          res.description = res.description_en;
+          break
+      }
+
+      delete res.description_pl;
+      delete res.description_en;
+      console.log(res);
+      
+      return res;
+    }));
   }
 }
