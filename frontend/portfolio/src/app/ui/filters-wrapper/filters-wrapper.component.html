@@ -1,0 +1,5 @@
+<div class="d-flex flex-column gap-x-8 overflow-auto">
+  @for (language of languagesList(); track $index) {
+    <app-single-filter [language]="language"/>
+  }
+</div>

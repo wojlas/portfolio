@@ -1,5 +1,5 @@
 import { inject } from '@angular/core';
-import { ResolveFn } from '@angular/router';
+import { ResolveFn, Router } from '@angular/router';
 import { PortfolioService } from '../services';
 import { forkJoin } from 'rxjs';
 

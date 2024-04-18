@@ -1,26 +1,31 @@
-<aside class="sidebar d-flex flex-column h-100 b-blue-grey-1 p-16 align-items-center gap-4">
-  <nav
-    routerLink="about" routerLinkActive="b-grey-4" 
-    class="sidebar__nav pointer b-grey-1 px-16 py-4 b-radius-4"
-  >
-    <span class="f-grey-5 bold big nowrap ellipsis">{{ 'aboutMe' | translate }}</span>
-  </nav>
-  <nav
-    routerLink="contact" routerLinkActive="b-grey-4" 
-    class="sidebar__nav pointer b-grey-1 px-16 py-4 b-radius-4"
-  >
-    <span class="f-grey-5 bold big nowrap ellipsis">{{ 'contact' | translate }}</span>
-  </nav>
-  <nav
-    routerLink="projects" routerLinkActive="b-grey-4" 
-    class="sidebar__nav pointer b-grey-1 px-16 py-4 b-radius-4"
-  >
-    <span class="f-grey-5 bold big nowrap ellipsis">{{ 'projects' | translate }}</span>
-  </nav>
+@if ((routerEvents$ | async) || true) {
+  <aside class="sidebar d-flex flex-column h-100 b-blue-grey-1 p-16 align-items-center gap-4">
+    <nav
+      routerLink="about" routerLinkActive="b-grey-4" 
+      class="sidebar__nav pointer b-grey-1 px-16 py-4 b-radius-4"
+    >
+      <span class="f-grey-5 bold big nowrap ellipsis">{{ 'aboutMe' | translate }}</span>
+    </nav>
+    <nav
+      routerLink="contact" routerLinkActive="b-grey-4" 
+      class="sidebar__nav pointer b-grey-1 px-16 py-4 b-radius-4"
+    >
+      <span class="f-grey-5 bold big nowrap ellipsis">{{ 'contact' | translate }}</span>
+    </nav>
+    <nav
+      routerLink="projects" routerLinkActive="b-grey-4 projects-page" 
+      class="sidebar__nav pointer b-grey-1 px-16 py-4 b-radius-4"
+    >
+      <span class="f-grey-5 bold big nowrap ellipsis">{{ 'projects' | translate }}</span>
+    </nav>
 
-  <div class="d-inline-flex w-100 align-items-center justify-content-center f-grey-5 mt-auto mb-2 gap-8 sidebar__lang">
-    <span class="pointer big" [class.bolder]="language() === 'pl'">PL</span> |
-    <span class="pointer big" [class.bolder]="language() === 'en'">ENG</span>
-  </div>
-
-</aside>
+    @if (isProjectsActive()) {
+      <app-filters-wrapper/>
+    }
+  
+    <div class="d-inline-flex w-100 align-items-center justify-content-center f-grey-5 mt-auto mb-2 gap-8 sidebar__lang">
+      <span class="pointer big" [class.bolder]="language() === 'pl'">PL</span> |
+      <span class="pointer big" [class.bolder]="language() === 'en'">ENG</span>
+    </div>
+  </aside>
+}
