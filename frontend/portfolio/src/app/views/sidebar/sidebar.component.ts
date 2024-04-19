@@ -29,6 +29,6 @@ export class SidebarComponent implements OnInit {
   }
   
   private setIsProjectsActive(): void {
-    this.isProjectsActive.set(this._router.url === '/projects');
+    this.isProjectsActive.set(this._router.url.startsWith('/projects'));
   }
 }

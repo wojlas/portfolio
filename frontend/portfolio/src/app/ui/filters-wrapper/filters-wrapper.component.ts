@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnInit, inject, signal } from '@angular/core';
 import { SingleFilterComponent } from '../single-filter/single-filter.component';
 import { IIdNameAndType } from '../../core/interfaces';
 import { PortfolioService } from '../../core/services';
@@ -12,6 +12,8 @@ import { PortfolioService } from '../../core/services';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FiltersWrapperComponent implements OnInit {
+  @HostBinding('style.min-width') hostWidth = 'calc(100% - 40px)';
+  
   public languagesList = signal<IIdNameAndType[]>([]);
 
   private readonly _portfolioService = inject(PortfolioService);

@@ -9,12 +9,12 @@ export const routes: Routes = [
     component: ProjectsComponent,
     resolve: { data: projectsPageResolver }
   },
-  // {
-  //   path: ':params',
-  //   component: ProjectsComponent
-  // },
   {
-    path: ':id',
+    path: 'filter/:test',
+    component: ProjectsComponent
+  },
+  {
+    path: 'details/:id',
     loadComponent: () => import('../../pages/project-details/project-details.component').then(c => c.ProjectDetailsComponent),
     resolve: { data: projectDetailsResolver }
   },

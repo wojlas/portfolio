@@ -2,6 +2,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+from django.utils.decorators import method_decorator
+from django.views.decorators.vary import vary_on_cookie
+from django.views.decorators.cache import cache_page
+
 from portfolio_api.models import Frameworks, Wording, Languages
 from portfolio_api.serializers import FrameworksSerializer, LanguagesSerializer, SnippetSerializer
 
@@ -32,6 +36,8 @@ class WordingsView(APIView):
 class LanguagesView(APIView):
   # get list of all languages
 
+  @method_decorator(cache_page(3600))
+  @method_decorator(vary_on_cookie)
   def get(self, request):
     try: 
       languages = Languages.objects.all()
@@ -45,6 +51,8 @@ class LanguagesView(APIView):
 class FrameworksView(APIView):
   # get list of all frameworks
 
+  @method_decorator(cache_page(3600))
+  @method_decorator(vary_on_cookie)
   def get(self, request):
     try: 
       frameworks = Frameworks.objects.all().prefetch_related('languages')
@@ -58,6 +66,8 @@ class FrameworksView(APIView):
 class AboutView(APIView):
   # get method for about me view
 
+  @method_decorator(cache_page(3600))
+  @method_decorator(vary_on_cookie)
   def get(self, request, lang):
     if lang not in ['pl', 'eng']:
       return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)

@@ -2,12 +2,18 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_cookie
+from django.utils.decorators import method_decorator
+
 from projects.models import Projects
 from projects.serializers import ProjectsListSerializer, ProjectDetailsSerializer
 
 class ProjectsView(APIView):
   # get list of projects with basic information's
 
+  @method_decorator(cache_page(3600))
+  @method_decorator(vary_on_cookie)
   def get(self, request):
     try:
       projects = Projects.objects.all()

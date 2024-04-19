@@ -19,6 +19,6 @@ export class ProjectCardComponent {
   private readonly _activatedRoute = inject(ActivatedRoute);
 
   public navigateTo(): void {
-    this._router.navigate([this.project().id.toString()], { relativeTo: this._activatedRoute}).then();
+    this._router.navigate([`details/${ this.project().id.toString() }`], { relativeTo: this._activatedRoute }).then();
   }
 }
