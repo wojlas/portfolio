@@ -56,4 +56,8 @@ export class PortfolioService {
       return res;
     }));
   }
+
+  public getAboutMeInformations(): Observable<any> {
+    return this._api.get<any>(`api/about/${ this._lang }`);
+  }
 }

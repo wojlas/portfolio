@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from portfolio_api.models import Languages, Wording, Frameworks
+from portfolio_api.models import AboutMeModel, Languages, Wording, Frameworks
 
 class SnippetSerializer(serializers.ModelSerializer):
   # serialize snippets from model
@@ -39,4 +39,11 @@ class FrameworksSerializer(serializers.ModelSerializer):
           del language['is_frontend']
     
     return representation
+  
+class AboutMeSerializer(serializers.ModelSerializer):
+  # serialize about me
+
+  class Meta:
+    model = AboutMeModel
+    fields = ['about_pl', 'about_en']
   

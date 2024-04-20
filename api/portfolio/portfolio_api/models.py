@@ -43,3 +43,17 @@ class LanguagesFrameworks(models.Model):
 
   languages = models.ForeignKey(Languages, on_delete=models.CASCADE)
   frameworks = models.ForeignKey(Frameworks, on_delete=models.CASCADE)
+
+class AboutMeModel(models.Model):
+  """model for store informations about me
+      I need this model to have an info in specific language without keeping everything on frontend side"""
+  
+  class Meta:
+    verbose_name_plural = 'about'
+
+  about_pl = models.TextField(null=False)
+  about_en = models.TextField(null=False)
+
+  def __str__(self):
+    return 'Info'
+  

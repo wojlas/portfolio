@@ -1,9 +1,10 @@
 from django.contrib import admin
 
-from portfolio_api.models import Wording, Languages, Frameworks, LanguagesFrameworks
+from portfolio_api.models import AboutMeModel, Wording, Languages, Frameworks, LanguagesFrameworks
 
 admin.site.register(Wording)
 admin.site.register(Languages)
+admin.site.register(AboutMeModel)
 
 class LanguageInline(admin.TabularInline):
   model = LanguagesFrameworks

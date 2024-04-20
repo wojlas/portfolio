@@ -1,1 +1,5 @@
-<p>about-me works!</p>
+@if (about().length) {
+  <div class="p-16 bold h-100 overflow-auto">{{ about() }}</div>
+} @else {
+  <div class="bold">Error</div>
+}

@@ -6,8 +6,8 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.vary import vary_on_cookie
 from django.views.decorators.cache import cache_page
 
-from portfolio_api.models import Frameworks, Wording, Languages
-from portfolio_api.serializers import FrameworksSerializer, LanguagesSerializer, SnippetSerializer
+from portfolio_api.models import Frameworks, Wording, Languages, AboutMeModel
+from portfolio_api.serializers import AboutMeSerializer, FrameworksSerializer, LanguagesSerializer, SnippetSerializer
 
 class WordingsView(APIView):
   # get snippets in selected language
@@ -17,7 +17,7 @@ class WordingsView(APIView):
       lang = 'eng'
 
     if lang not in ['pl', 'eng']:
-      return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+      return Response(status=status.HTTP_404_NOT_FOUND)
     
     try: 
       snippets = Wording.objects.all()
@@ -69,15 +69,24 @@ class AboutView(APIView):
   @method_decorator(cache_page(3600))
   @method_decorator(vary_on_cookie)
   def get(self, request, lang):
-    if lang not in ['pl', 'eng']:
-      return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-    
-    resp_message = {}
+    if lang == 'en':
+      lang = 'eng'
 
-    if (lang == 'eng'):
-      resp_message['message'] = 'about me will be available soon...'
-    else:
-      resp_message['message'] = 'informacje \'o mnie\' będą dostępne wkrótce...'
+    if lang not in ['pl', 'eng']:
+      return Response(status=status.HTTP_404_NOT_FOUND)
     
-    return Response(status=status.HTTP_200_OK, data=resp_message)
+    try:
+      info = AboutMeModel.objects.all()
+
+      if info == None:
+        return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+      serializer = AboutMeSerializer(info, many=True)
+      serializer_result = serializer.data[0]
+      
+      result = { 'data': serializer_result['about_en'] if lang == 'eng' else serializer_result['about_pl'] }
+    
+      return Response(status=status.HTTP_200_OK, data=result)
+    except AboutMeModel.DoesNotExist:
+      return Response(status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
