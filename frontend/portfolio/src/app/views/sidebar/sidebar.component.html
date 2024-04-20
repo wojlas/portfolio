@@ -18,14 +18,21 @@
     >
       <span class="f-grey-5 bold big nowrap ellipsis">{{ 'projects' | translate }}</span>
     </nav>
+    <i class="more-btn icon-arrow-right ml-8" [class.show]="showFilters()" (click)="toggleFilters()"></i>
 
-    @if (isProjectsActive()) {
-      <app-filters-wrapper/>
-    }
-  
-    <div class="d-inline-flex w-100 align-items-center justify-content-center f-grey-5 mt-auto mb-2 gap-8 sidebar__lang">
-      <span class="pointer big" [class.bolder]="language() === 'pl'">PL</span> |
-      <span class="pointer big" [class.bolder]="language() === 'en'">ENG</span>
+    <div
+     class="wrapper d-flex flex-column justify-content-between"
+     [class.show]="showFilters()"
+    >
+      @if (isProjectsActive()) {
+        <app-filters-wrapper/>
+      }
+    
+      <div class="d-inline-flex w-100 align-items-center justify-content-center f-grey-5 mt-auto mb-2 gap-8 sidebar__lang">
+        <span class="pointer big" [class.bolder]="language() === 'pl'">PL</span> |
+        <span class="pointer big" [class.bolder]="language() === 'en'">ENG</span>
+      </div>
     </div>
+
   </aside>
 }

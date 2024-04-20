@@ -1,9 +1,23 @@
 .sidebar {
   transition-duration: .3s;
   
-  &__nav {
+  &__nav, .wrapper {
     width: calc(100% - 40px);
     min-width: 110px;
+  }
+
+  .wrapper {
+    flex: 1;
+  }
+
+  .more-btn {
+    display: none;
+    transform: rotate(90deg);
+    transition-duration: .3s;
+
+    &.show {
+      transform: rotate(270deg);
+    }
   }
 }
 
@@ -18,6 +32,19 @@
     &__nav, &__lang {
       width: auto;
       text-align: center;
+    }
+
+    .more-btn {
+      display: block;
+    }
+
+    .wrapper {
+      height: 0;
+      overflow: hidden;
+
+      &.show {
+        height: auto;
+      }
     }
   }
 }

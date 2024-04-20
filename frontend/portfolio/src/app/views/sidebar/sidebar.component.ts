@@ -16,6 +16,7 @@ import { FiltersWrapperComponent } from "../../ui/filters-wrapper/filters-wrappe
 export class SidebarComponent implements OnInit {
   public language = signal(JSON.parse(localStorage.getItem('selectedLanguage') ?? '"pl"'));
   public isProjectsActive = signal<boolean>(false);
+  public showFilters = signal(false);
   public routerEvents$!: Observable<NavigationEnd>;
 
   private _router = inject(Router);
@@ -26,6 +27,10 @@ export class SidebarComponent implements OnInit {
       tap(this.setIsProjectsActive.bind(this))
     );
     this.setIsProjectsActive();
+  }
+
+  public toggleFilters(): void {
+    this.showFilters.set(!this.showFilters());
   }
   
   private setIsProjectsActive(): void {
