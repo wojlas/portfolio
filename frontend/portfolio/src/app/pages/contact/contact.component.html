@@ -1,1 +1,25 @@
-<p>contact works!</p>
+<div class="d-grid contact p-16 gap-8">
+  <div class="contact__info d-flex flex-column">
+    <h3>Wojciech Łaska</h3>
+    <address>
+      Ogródki 21
+      44-237 Bełk
+      Rybnik, Katowice, Polska
+    </address>
+
+    <h4>733-145-054</h4>
+    <div class="d-inline-flex gap-8 email-section">
+      <i class="icon-email"></i>
+      <h4 class="pointer m-0" (click)="writeEmail()">laskaw&#64;gmail.com</h4>
+    </div>
+  </div>
+  <div class="contact__assets d-flex flex-column align-items-end gap-8">
+    <img src="../../../assets/static/DSC_9687.JPG" alt="pic" width="auto" height="248">
+
+    <div class="d-inline-flex gap-8 p-8 links">
+      <i class="icon-github github" (click)="openGithub()"></i>
+      <i class="icon-linkedin linkedin" (click)="openLinkedin()"></i>
+      <i class="icon-file-pdf pdf"></i>
+    </div>
+  </div>
+</div>

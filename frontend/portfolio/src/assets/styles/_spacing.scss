@@ -1,4 +1,4 @@
-$values: 2, 4, 8, 16, 24;
+$values: 0, 2, 4, 8, 16, 24;
 
 @each $value in $values {
   .m-#{ $value } { margin: #{ $value }px }

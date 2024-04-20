@@ -49,3 +49,6 @@
 .icon-file-pdf:before {
   content: "\eadf";
 }
+.icon-email:before {
+  content: "\e945";
+}

@@ -9,5 +9,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactComponent {
+  public openGithub(): void {
+    window.open('https://github.com/wojlas', '_blank');
+  }
 
+  public openLinkedin(): void {
+    window.open('https://linkedin.com/in/wojciech-laska-pl', '_blank');
+  }
+
+  public writeEmail(): void {
+    window.open('mailto:laskaw@gmail.com?subject=Contact from portfolio page', '_blank');
+  }
 }
