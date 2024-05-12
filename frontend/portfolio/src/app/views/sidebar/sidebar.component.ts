@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router, RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { TranslatePipe } from "../../core/pipes/translate.pipe";
 import { Observable, filter, map, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';

@@ -1,4 +1,4 @@
-<div class="d-flex flex-column p-16 gap-16">
+<div class="d-flex flex-column p-16 gap-16 h-100 overflow-auto">
   @for (project of projects(); track project.id) {
     <app-project-card [project]="project"/>
   }

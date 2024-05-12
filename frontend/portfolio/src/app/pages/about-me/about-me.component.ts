@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { TranslatePipe } from "../../core/pipes/translate.pipe";
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-about-me',
@@ -13,9 +12,6 @@ import { ActivatedRoute } from '@angular/router';
 export class AboutMeComponent implements OnInit {
     public about = signal('');
 
-    private _activatedRoute = inject(ActivatedRoute);
-
     public ngOnInit(): void {
-        this.about.set(this._activatedRoute.snapshot.data['data']['data']);
     }
 }

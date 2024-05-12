@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { ISimpleProject } from '../../core/interfaces';
+import { IProject, ISimpleProject } from '../../core/interfaces';
 import { ProjectCardComponent } from "../../ui/project-card/project-card.component";
+import { PROJECTS } from '../../core/constants';
 
 @Component({
     selector: 'app-projects',
@@ -13,31 +14,31 @@ import { ProjectCardComponent } from "../../ui/project-card/project-card.compone
     imports: [RouterModule, CommonModule, ProjectCardComponent]
 })
 export class ProjectsComponent {
-  public projects = signal<ISimpleProject[]>([]);
+  public projects = signal<IProject[]>(Object.values(PROJECTS));
 
   public constructor(private readonly _activatedRoute: ActivatedRoute) {
     this._activatedRoute.queryParams.subscribe(params => {
       
       if (!Object.keys(params).length) {
-        this.setProjectsList(this._activatedRoute.snapshot.data['data'][2]);
+        // this.setProjectsList(this._activatedRoute.snapshot.data['data'][2]);
       } else {
         this.filterProjectsList(params['type'], +params['id']); 
       }
     });
   }
 
-  private setProjectsList(projects: ISimpleProject[]): void {
+  private setProjectsList(projects: IProject[]): void {
     this.projects.set(projects)
   }
 
   private filterProjectsList(type: 'languages' | 'frameworks', id: number): void {
-    const base: ISimpleProject[] = this._activatedRoute.snapshot.data['data'][2];
-    this.setProjectsList(base.filter(project => {
-      if (type === 'languages') {
-        return project.language.some(lang => lang.id === id);
-      } else {
-        return project.framework.some(framework => framework.id === id);
-      }
-    }));
+    const base: IProject[] = this._activatedRoute.snapshot.data['data'][2];
+    // this.setProjectsList(base.filter(project => {
+    //   if (type === 'languages') {
+    //     return project.languages.some(lang => lang.id === id);
+    //   } else {
+    //     return project.frameworks.some(framework => framework.id === id);
+    //   }
+    // }));
   }
 }

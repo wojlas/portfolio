@@ -1,21 +1,21 @@
 <div class="d-flex flex-column w-100 b-radius-4 b-grey-4 f-grey-5 project-card">
   <div class="d-inline-flex align-items-center justify-content-between gap-4 px-16 py-8 nowrap ellipsis pointer w-100">
-    <span class="f-grey-5">{{ project().name | titlecase }}</span>
+    <span class="f-grey-5">{{ project().descriptionPl| titlecase }}</span>
     <i class="icon-pencil f-grey-1" (click)="navigateTo()"></i>
   </div>
   <div class="project-card__section">
     <span class="f-grey-4">{{ 'languages' | translate }}</span>
     <div class="project-card__section__value">
-      @for (language of project().language; track $index) {
-        <span class="f-grey-5">{{ language.name | titlecase }}</span>
+      @for (language of project().languages; track $index) {
+        <span class="f-grey-5">{{ language | titlecase }}</span>
       }
     </div>
   </div>
   <div class="project-card__section">
     <span class="f-grey-4">{{ 'frameworks' | translate }}</span>
     <div class="project-card__section__value">
-      @for (framework of project().framework; track $index) {
-        <span class="f-grey-5">{{ framework.name | titlecase }}</span>
+      @for (framework of project().frameworks; track $index) {
+        <span class="f-grey-5">{{ framework | titlecase }}</span>
       }
     </div>
   </div>

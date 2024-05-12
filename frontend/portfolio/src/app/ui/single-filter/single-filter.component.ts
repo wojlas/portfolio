@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject, input, signal } from '@angular/core';
 import { IIdNameAndLanguage, IIdNameAndType } from '../../core/interfaces';
 import { NgTemplateOutlet } from '@angular/common';
-import { PortfolioService } from '../../core/services';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter } from 'rxjs';
 
@@ -22,14 +21,10 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
 
   private _sub!: Subscription;
 
-  private readonly _portfolioService = inject(PortfolioService);
   private readonly _router = inject(Router);
   private readonly _activatedRoute = inject(ActivatedRoute);
 
   public ngOnInit(): void {
-    this.frameworksList.set(this._portfolioService.frameworksBase().filter(framework => {
-      return framework.languages.some(lang => lang.id === this.language().id);
-    })); 
     this.trackRouterChanges();
     this.checkUrlOnInit();
   }
