@@ -4,7 +4,7 @@
       <i class="icon-arrow-left f-blue-grey-5"></i>
       <span class="f-blue-grey-5" routerLink="/projects">{{ 'backToList' | translate }}</span>
     </button>
-    @if (project().repository_link && project().repository_link.length) {
+    @if (project().repositoryLink && project().repositoryLink.length) {
       <i class="icon-github pointer bolder gh-icon" (click)="openGithubRepository()"></i>
     }
   </div>
@@ -17,27 +17,27 @@
         <div class="section">
           <span class="f-grey-4">{{ 'languages' | translate }}</span>
           <div class="section__value">
-            @for (language of project().language; track $index) {
-              <span class="f-grey-5">{{ language.name | titlecase }}</span>
+            @for (language of project().languages; track $index) {
+              <span class="f-grey-5">{{ language }}</span>
             }
           </div>
         </div>
         <div class="section">
           <span class="f-grey-4">{{ 'frameworks' | translate }}</span>
           <div class="section__value">
-            @for (framework of project().framework; track $index) {
-              <span class="f-grey-5">{{ framework.name | titlecase }}</span>
+            @for (framework of project().frameworks; track $index) {
+              <span class="f-grey-5">{{ framework }}</span>
             }
           </div>
         </div>
         <div class="section">
           <span class="f-grey-4">{{ 'releaseDate' | translate }}</span>
-          <span class="section__value f-grey-5">{{ project().release_date }}</span>
+          <span class="section__value f-grey-5">{{ project().releaseDate }}</span>
         </div>
       </div>
     </app-project-details-section>
     <app-project-details-section [sectionTitle]="'description' | translate">
-      <div class="d-flex w-100 py-16 f-grey-5">{{ project().description | emptyDash }}</div>
+      <div class="d-flex w-100 py-16 f-grey-5">{{ project().descriptionPl | emptyDash }}</div>
     </app-project-details-section>
     <!-- <app-project-details-section sectionTitle="DEMO">
       demo

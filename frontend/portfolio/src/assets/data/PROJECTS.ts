@@ -1,5 +1,5 @@
-import { FRAMEWORKS, LANGUAGES, PROJECTS as Projects } from "../enums";
-import { IProject } from "../interfaces";
+import { FRAMEWORKS, LANGUAGES, PROJECTS as Projects } from "../../app/core/enums";
+import { IProject } from "../../app/core/interfaces";
 
 export const PROJECTS: Record<Projects, IProject> = {
   [Projects.PORTFOLIO]: {

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { ActivatedRoute, RouterModule } from '@angular/router';
-import { IProject, ISimpleProject } from '../../core/interfaces';
+import { IProject } from '../../core/interfaces';
 import { ProjectCardComponent } from "../../ui/project-card/project-card.component";
 import { PROJECTS } from '../../core/constants';
 
@@ -18,9 +18,8 @@ export class ProjectsComponent {
 
   public constructor(private readonly _activatedRoute: ActivatedRoute) {
     this._activatedRoute.queryParams.subscribe(params => {
-      
       if (!Object.keys(params).length) {
-        // this.setProjectsList(this._activatedRoute.snapshot.data['data'][2]);
+        this.setProjectsList(this._activatedRoute.snapshot.data['projects']);
       } else {
         this.filterProjectsList(params['type'], +params['id']); 
       }

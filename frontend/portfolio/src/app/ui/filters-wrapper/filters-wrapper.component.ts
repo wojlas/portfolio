@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, signal } from '@angular/core';
 import { SingleFilterComponent } from '../single-filter/single-filter.component';
-import { IIdNameAndType } from '../../core/interfaces';
+import { LANGUAGES } from '../../core/enums';
 
 @Component({
   selector: 'app-filters-wrapper',
@@ -10,11 +10,8 @@ import { IIdNameAndType } from '../../core/interfaces';
   styleUrl: './filters-wrapper.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FiltersWrapperComponent implements OnInit {
+export class FiltersWrapperComponent {
   @HostBinding('style.min-width') hostWidth = 'calc(100% - 40px)';
   
-  public languagesList = signal<IIdNameAndType[]>([]);
-
-  public ngOnInit(): void {
-  }
+  public languagesList = signal(Object.values(LANGUAGES));
 }

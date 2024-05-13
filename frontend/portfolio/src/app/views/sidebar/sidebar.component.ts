@@ -27,10 +27,17 @@ export class SidebarComponent implements OnInit {
       tap(this.setIsProjectsActive.bind(this))
     );
     this.setIsProjectsActive();
+
   }
 
   public toggleFilters(): void {
     this.showFilters.set(!this.showFilters());
+  }
+
+  public setLanguage(val: 'en' | 'pl'): void {
+    this.language.set(val);
+    localStorage.setItem('selectedLanguage', JSON.stringify(val));
+    window.location.reload();
   }
   
   private setIsProjectsActive(): void {

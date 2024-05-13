@@ -2,9 +2,8 @@
   <div
    class="d-flex align-items-center justify-content-start px-16 py-4 pointer no-select b-grey-1 b-radius-4 w-100"
    [class.b-grey-3]="isActive()"
-   (click)="setActive()"
   >
-    <span class="f-grey-5 bold big nowrap ellipsis">{{ language().name }}</span>
+    <span class="f-grey-5 bold big nowrap ellipsis">{{ language() }}</span>
   </div>
   @if (isActive() && frameworksList().length) {
     <div class="d-flex flex-column gap-4 ml-16">
@@ -12,7 +11,7 @@
         <div
           class="d-flex align-items-center justify-content-start px-16 py-4 pointer no-select b-grey-1 b-radius-4 w-100"
           [class.b-grey-3]="activeFramework() && activeFramework()?.id === framework.id"
-          (click)="setFramework(framework)"
+        
         >
           <span class="f-grey-5 bold big nowrap ellipsis">{{ framework.name }}</span>
         </div>

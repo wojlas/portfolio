@@ -29,8 +29,8 @@
       }
     
       <div class="d-inline-flex w-100 align-items-center justify-content-center f-grey-5 mt-auto mb-2 gap-8 sidebar__lang">
-        <span class="pointer big" [class.bolder]="language() === 'pl'">PL</span> |
-        <span class="pointer big" [class.bolder]="language() === 'en'">ENG</span>
+        <span class="pointer big" [class.bolder]="language() === 'pl'" (click)="setLanguage('pl')">PL</span> |
+        <span class="pointer big" [class.bolder]="language() === 'en'" (click)="setLanguage('en')">ENG</span>
       </div>
     </div>
 
