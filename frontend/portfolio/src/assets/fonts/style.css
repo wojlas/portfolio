@@ -52,3 +52,7 @@
 .icon-email:before {
   content: "\e945";
 }
+
+.icon-eye::before {
+  content: "\e9ce";
+}

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject, input, signal } from '@angular/core';
-import { CommonModule, NgTemplateOutlet } from '@angular/common';
+import { CommonModule, NgTemplateOutlet, Location } from '@angular/common';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter, switchMap } from 'rxjs';
 import { FRAMEWORKS } from '../../core/constants';
@@ -24,6 +24,7 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
 
   private readonly _router = inject(Router);
   private readonly _activatedRoute = inject(ActivatedRoute);
+  private readonly _location = inject(Location);
 
   public ngOnInit(): void {
     this._sub = this._router.events.pipe(
@@ -32,6 +33,7 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
     ).subscribe(({ lang, framework }) => {
       this.isActive.set(lang === this.language());
       this.activeFramework.set(framework);
+      this._location.go('/projects');
     });
   }
 
