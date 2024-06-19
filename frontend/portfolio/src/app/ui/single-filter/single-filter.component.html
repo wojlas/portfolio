@@ -1,7 +1,8 @@
 <div class="d-flex flex-column gap-4">
   <div
-   class="d-flex align-items-center justify-content-start px-16 py-4 pointer no-select b-grey-1 b-radius-4 w-100"
-   [class.b-grey-3]="isActive()"
+   class="d-flex align-items-center justify-content-start px-16 py-4 pointer no-select b-radius-4 w-100"
+   [ngClass]="isActive() ? 'b-grey-4' : 'b-grey-1'"
+   (click)="filterByLanguage()"
   >
     <span class="f-grey-5 bold big nowrap ellipsis">{{ language() }}</span>
   </div>
@@ -10,10 +11,10 @@
       @for (framework of frameworksList(); track $index) {
         <div
           class="d-flex align-items-center justify-content-start px-16 py-4 pointer no-select b-grey-1 b-radius-4 w-100"
-          [class.b-grey-3]="activeFramework() && activeFramework()?.id === framework.id"
-        
+          [ngClass]="activeFramework() && activeFramework() === framework ? 'b-grey-4' : 'b-grey-1'"
+          (click)="filterByFramework(framework)"
         >
-          <span class="f-grey-5 bold big nowrap ellipsis">{{ framework.name }}</span>
+          <span class="f-grey-5 bold big nowrap ellipsis">{{ framework }}</span>
         </div>
       }
     </div>

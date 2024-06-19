@@ -1,15 +1,13 @@
 import { Routes } from "@angular/router";
 import { ProjectsComponent } from "./projects.component";
-import { projectsResolver } from "../../core/resolvers/projects.resolver";
 
 export const routes: Routes = [
   {
     path: '',
     component: ProjectsComponent,
-    resolve: { projects: projectsResolver }
   },
   {
-    path: 'filter/:test',
+    path: 'filter/:params',
     component: ProjectsComponent
   },
   {
