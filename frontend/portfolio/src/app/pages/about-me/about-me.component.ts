@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TranslatePipe } from "../../core/pipes/translate.pipe";
 
 @Component({
@@ -9,9 +9,6 @@ import { TranslatePipe } from "../../core/pipes/translate.pipe";
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [TranslatePipe]
 })
-export class AboutMeComponent implements OnInit {
-    public about = signal('');
-
-    public ngOnInit(): void {
-    }
+export class AboutMeComponent {
+    public language = signal(JSON.parse(localStorage.getItem('selectedLanguage') ?? ''));
 }

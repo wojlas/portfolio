@@ -8,4 +8,5 @@ export const SNIPPETS: Record<string, Record<'pl' | 'en', string>> = {
   projects: { pl: 'Projekty', en: 'Projects' },
   aboutMe: { pl: 'O mnie', en: 'About me' },
   contact: { pl: 'Kontakt', en: 'Contact' },
+  certificates: { pl: 'Certyfikaty', en: 'Certificates' },
 };

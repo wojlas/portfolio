@@ -1,5 +1,28 @@
-@if (about().length) {
-  <div class="p-16 bold h-100 overflow-auto">{{ about() }}</div>
-} @else {
-  <div class="bold">Error</div>
-}
+<div class="about p-8 gap-4 d-flex flex-column overflow-auto">
+  <div class="about__section">
+    <div class="about__section__header p-16 bolder b-grey-4 f-grey-1 no-select">{{ 'aboutMe' | translate }}</div>
+    <span class="d-flex flex-column gap-4 px-4 f-grey-5">
+      @if (language() !== 'en') {
+        <p class="pl-8">Cześć. Nazywam się Wojciech Łaska i witam w moim portfolio.</p>
+        <p>Programowaniem zajmuję się zawodowo od nieco ponad 2 lat, jednak hobbystycznie programowałem już wcześniej.
+           Poznałem dosyć szeroki zakres technologii od frontendu (Angular, React), poprzez backend (Python, Django, Django Rest Api, Flask), na technologiach bazodanowych (PostgreSQL)
+          i mobilnych kończąc.</p>
+        <p>Obecnie w pracy pracuję wyłącznie z Angularem, jednak nie zapominam o pozostałych poznanych technologiach, które stanowią miłą odmianę po godzinach, sprawiając, że pomimo
+          pracy jako programista, nadal mogę traktować programowanie jako hobby. Staram się także stopniowo poszerzać zakres umiejętności o nowe frameworki, zagadnienia związane z devops
+          czy z chmurą Aws. W taki sposób poznałem chociażby React Native, w którym, pomimo, że nie jestem ekspertem, czuję się dosyć swobodnie i rozumiem jak działa.</p>
+        <p>W czasie wolnym staram się unikać nudy uprawiając sport, czytając książki i spędzając czas na świeżym powietrzu. Jestem wielkim fanem piłki nożnej,
+           jazdy na rowerze a od jakiegoś czasu zacząłem ćwiczyć na siłowni. W sporcie można łatwo zrzucić z siebie stres z życia zawodowego i dodać sobie energii.</p>
+        <p>Zapraszam do kontaktu czy to poprzez email, Linkedin lub telefonicznie.</p>
+        <p class="mt-8">Pozdrawiam</p>
+        <p class="bold">Wojtek</p>
+
+      } @else {
+        <p>Hello.</p>
+      }
+    </span>
+  </div>
+  <div class="about__section">
+    <div class="about__section__header p-16 bolder b-grey-4 f-grey-1 no-select">{{ 'certificates' | translate }}</div>
+    <span class="d-flex flex-column gap-4"></span>
+  </div>
+</div>
