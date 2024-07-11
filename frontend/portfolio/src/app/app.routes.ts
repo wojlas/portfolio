@@ -20,7 +20,8 @@ export const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'about'
+        redirectTo: 'about',
+        pathMatch: 'prefix'
       }
     ]
   }

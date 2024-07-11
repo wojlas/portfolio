@@ -18,6 +18,6 @@ export class ContactComponent {
   }
 
   public writeEmail(): void {
-    window.open('mailto:laskaw@gmail.com?subject=Contact from portfolio page', '_blank');
+    window.open('mailto:laskaw@gmail.com', '_blank');
   }
 }

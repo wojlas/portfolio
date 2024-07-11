@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject, input, signal } from '@angular/core';
-import { CommonModule, NgTemplateOutlet, Location } from '@angular/common';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Subscription, filter, switchMap } from 'rxjs';
+import { CommonModule, NgTemplateOutlet } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription, filter, map } from 'rxjs';
 import { FRAMEWORKS } from '../../core/constants';
 import { LANGUAGES } from '../../core/enums';
 
@@ -23,30 +23,51 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
   private _sub!: Subscription;
 
   private readonly _router = inject(Router);
-  private readonly _activatedRoute = inject(ActivatedRoute);
-  private readonly _location = inject(Location);
 
   public ngOnInit(): void {
+    this.setFilterElementState(decodeURIComponent(this._router.url));
     this._sub = this._router.events.pipe(
       filter(res => res instanceof NavigationEnd),
-      switchMap(() => this._activatedRoute.queryParams)
-    ).subscribe(({ lang, framework }) => {
-      this.isActive.set(lang === this.language());
-      this.activeFramework.set(framework);
-      this._location.go('/projects');
+      map((res: any): string => decodeURIComponent(res.url))
+    ).subscribe((url: string) => {
+      this.setFilterElementState(url);
     });
   }
 
   public filterByLanguage(): void {
-    this._router.navigate([`/projects`], { skipLocationChange: true, queryParams: { lang: this.language() }}).then();
-    this.frameworksList.set(Object.entries(FRAMEWORKS).filter(([key, value]) => value.includes(this.language())).map(x => x[0]) as string[]);
+    this._router.navigate([`/projects/language=${ this.language() }`]).then();
   }
 
   public filterByFramework(framework: string): void {
-    this._router.navigate(['/projects'], { skipLocationChange: true, queryParams: { lang: this.language(), framework }}).then();
+    this._router.navigate([`/projects/language=${ this.language() }/framework=${ framework }`]).then();
   }
 
-  
+  private setFilterElementState(url: string): void {
+    const language = url.split(`language=`)[1];
+      const framework = url.split(`framework=`)[1];
+
+      if (language?.length) {
+        this.setActiveState(language.split('/')[0]);
+      } else {
+        this.isActive.set(false);
+      }
+
+      if (framework?.length && this.frameworksList()?.length) {
+        this.activeFramework.set(framework);
+      } else {
+        this.activeFramework.set(null);
+      }
+  }
+
+  private setActiveState(lang: string): void {
+    if (lang === this.language()) {
+      this.isActive.set(true);
+      this.frameworksList.set(Object.entries(FRAMEWORKS).filter(([key, value]) => value.includes(this.language())).map(x => x[0]) as string[]);
+    } else {
+      this.isActive.set(false);
+    }
+  }
+
   public ngOnDestroy(): void {
     this._sub?.unsubscribe();  
   }
