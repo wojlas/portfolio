@@ -7,6 +7,10 @@ export const routes: Routes = [
     component: ProjectsComponent,
   },
   {
+    path: 'details/:id',
+    loadComponent: () => import('../../pages/project-details/project-details.component').then(c => c.ProjectDetailsComponent)
+  },
+  {
     path: ':language',
     component: ProjectsComponent
   },
@@ -15,12 +19,7 @@ export const routes: Routes = [
     component: ProjectsComponent
   },
   {
-    path: 'details/:id',
-    loadComponent: () => import('../../pages/project-details/project-details.component').then(c => c.ProjectDetailsComponent)
-  },
-  {
     path: '**',
-    redirectTo: '',
-    pathMatch: 'prefix'
+    redirectTo: ''
   }
 ];

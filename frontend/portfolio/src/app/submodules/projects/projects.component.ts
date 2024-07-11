@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { IProject } from '../../core/interfaces';
 import { ProjectCardComponent } from "../../ui/project-card/project-card.component";
 import { PROJECTS } from '../../core/constants';
 import { LANGUAGES, FRAMEWORKS } from '../../core/enums';
+import { map } from 'rxjs';
+import { ProjectsHelperService } from '../../core/services/projects-helper.service';
 
 @Component({
     selector: 'app-projects',
@@ -15,29 +17,20 @@ import { LANGUAGES, FRAMEWORKS } from '../../core/enums';
     imports: [RouterModule, CommonModule, ProjectCardComponent]
 })
 export class ProjectsComponent {
-  public projects = signal<IProject[]>([]);
+  public router = inject(Router);
+  public activatedRoute = inject(ActivatedRoute);
 
-  public constructor(private readonly _activatedRoute: ActivatedRoute) {
-    this._activatedRoute.queryParams.subscribe(params => {
-      if (!Object.keys(params).length) {
-        this.setProjectsList(Object.values(PROJECTS));
+  public projectsList$ = inject(ProjectsHelperService).projectsFilters$.asObservable().pipe(
+    map(({ language, framework}) => {
+      if (language) {
+        return Object.values(PROJECTS).filter((project: IProject) => {
+          return framework
+            ? project.languages.includes(language as LANGUAGES) && project.frameworks?.includes(framework as FRAMEWORKS) 
+            : project.languages.includes(language as LANGUAGES);
+        });
       } else {
-        this.filterProjectsList(params['lang'], params['framework']); 
+        return Object.values(PROJECTS);
       }
-    });
-  }
-
-  private setProjectsList(projects: IProject[]): void {
-    this.projects.set(projects)
-  }
-
-  private filterProjectsList(language: string, framework?: string): void {
-    this.setProjectsList(
-      Object.values(PROJECTS).filter((value: IProject) => {
-        return framework
-        ? value.languages.includes(language as LANGUAGES) && value.frameworks?.includes(framework as FRAMEWORKS) 
-        : value.languages.includes(language as LANGUAGES);
-      })
-    );
-  }
+    })
+  );
 }

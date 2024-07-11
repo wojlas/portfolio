@@ -4,6 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter, map } from 'rxjs';
 import { FRAMEWORKS } from '../../core/constants';
 import { LANGUAGES } from '../../core/enums';
+import { ProjectsHelperService } from '../../core/services/projects-helper.service';
 
 @Component({
   selector: 'app-single-filter',
@@ -23,6 +24,7 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
   private _sub!: Subscription;
 
   private readonly _router = inject(Router);
+  private readonly _projectsHelper = inject(ProjectsHelperService);
 
   public ngOnInit(): void {
     this.setFilterElementState(decodeURIComponent(this._router.url));
@@ -44,19 +46,21 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
 
   private setFilterElementState(url: string): void {
     const language = url.split(`language=`)[1];
-      const framework = url.split(`framework=`)[1];
+    const framework = url.split(`framework=`)[1];
 
-      if (language?.length) {
-        this.setActiveState(language.split('/')[0]);
-      } else {
-        this.isActive.set(false);
-      }
+    if (language?.length) {
+      this.setActiveState(language.split('/')[0]);
+    } else {
+      this.isActive.set(false);
+    }
 
-      if (framework?.length && this.frameworksList()?.length) {
-        this.activeFramework.set(framework);
-      } else {
-        this.activeFramework.set(null);
-      }
+    if (framework?.length && this.frameworksList()?.length) {
+      this.activeFramework.set(framework);
+    } else {
+      this.activeFramework.set(null);
+    }
+
+    this._projectsHelper.projectsFilters$.next({ language: language?.split('/')?.[0], framework: framework });
   }
 
   private setActiveState(lang: string): void {

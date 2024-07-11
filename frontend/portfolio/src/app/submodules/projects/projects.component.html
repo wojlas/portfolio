@@ -1,5 +1,5 @@
 <div class="d-flex flex-column p-16 gap-16 h-100 overflow-auto">
-  @for (project of projects(); track project.id) {
+  @for (project of projectsList$ | async; track project) {
     <app-project-card [project]="project"/>
   }
 </div>

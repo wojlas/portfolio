@@ -21,7 +21,7 @@ export class ProjectDetailsComponent implements OnInit {
   private readonly _router = inject(Router);
 
   public ngOnInit(): void {
-    const id = +this._router.url.split('/')[this._router.url.split('/').length - 1];
+    const id = +decodeURIComponent(this._router.url).split('id=')[1];
     this.project.set(Object.values(PROJECTS).find(x => x.id === id) ?? {} as IProject);
   }
 
