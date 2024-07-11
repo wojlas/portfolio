@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { IProject } from '../../core/interfaces';
 import { ProjectCardComponent } from "../../ui/project-card/project-card.component";
 import { PROJECTS } from '../../core/constants';
@@ -16,10 +16,7 @@ import { ProjectsHelperService } from '../../core/services/projects-helper.servi
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterModule, CommonModule, ProjectCardComponent]
 })
-export class ProjectsComponent {
-  public router = inject(Router);
-  public activatedRoute = inject(ActivatedRoute);
-
+export class ProjectsComponent implements OnInit {
   public projectsList$ = inject(ProjectsHelperService).projectsFilters$.asObservable().pipe(
     map(({ language, framework}) => {
       if (language) {
@@ -33,4 +30,8 @@ export class ProjectsComponent {
       }
     })
   );
+
+  public ngOnInit(): void {
+    localStorage.removeItem('prevUrl');
+  }
 }

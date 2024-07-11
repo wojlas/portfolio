@@ -17,6 +17,7 @@ import { PROJECTS } from '../../core/constants';
 })
 export class ProjectDetailsComponent implements OnInit {
   public project = signal<IProject>({} as IProject);
+  public prevUrl = localStorage.getItem('prevUrl') ?? 'projects';
 
   private readonly _router = inject(Router);
 

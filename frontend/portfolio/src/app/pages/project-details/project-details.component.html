@@ -2,7 +2,7 @@
   <div class="d-inline-flex align-items-center justify-content-between w-100 pb-8 px-16">
     <button class="back-btn">
       <i class="icon-arrow-left f-blue-grey-5"></i>
-      <span class="f-blue-grey-5" routerLink="/projects">{{ 'backToList' | translate }}</span>
+      <span class="f-blue-grey-5" [routerLink]="prevUrl">{{ 'backToList' | translate }}</span>
     </button>
     @if (project().repositoryLink && project().repositoryLink.length) {
       <i class="icon-github pointer bolder gh-icon" (click)="openGithubRepository()"></i>

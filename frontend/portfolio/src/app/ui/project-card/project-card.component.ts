@@ -18,6 +18,11 @@ export class ProjectCardComponent {
   private readonly _router = inject(Router);
 
   public navigateTo(): void {
+    this.saveRouterUrlToLocalStorage();
     this._router.navigate([`projects/details/id=${ this.project().id.toString() }`]).then();
+  }
+
+  private saveRouterUrlToLocalStorage(): void {
+    localStorage.setItem('prevUrl', decodeURIComponent(this._router.url));
   }
 }
