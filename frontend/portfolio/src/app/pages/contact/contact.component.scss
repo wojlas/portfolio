@@ -52,3 +52,14 @@
     }
   }
 }
+
+@media screen and (max-width: 400px) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      align-items: flex-start;
+    }
+  }
+}

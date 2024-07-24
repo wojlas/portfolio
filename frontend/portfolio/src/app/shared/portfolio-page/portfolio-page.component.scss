@@ -19,6 +19,7 @@
 
     &__content {
       flex: 1 0 100%;
+      max-height: calc(100% - 80px);
     }
   }
 }
