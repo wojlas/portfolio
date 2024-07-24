@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
 import { TranslatePipe } from "../../core/pipes/translate.pipe";
 
 @Component({
@@ -9,6 +9,16 @@ import { TranslatePipe } from "../../core/pipes/translate.pipe";
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [TranslatePipe]
 })
-export class AboutMeComponent {
-    public language = signal(JSON.parse(localStorage.getItem('selectedLanguage') ?? ''));
+export class AboutMeComponent implements OnInit {
+    public language = signal<'en' | 'pl'>('en');
+
+    public ngOnInit(): void {
+        const storedLanguage = localStorage.getItem('selectedLanguage');
+
+        if (storedLanguage && storedLanguage !== '') {
+            this.language.set(JSON.parse(storedLanguage));
+        } else {
+            localStorage.setItem('selectedLanguage', JSON.stringify('en'));
+        }
+    }
 }

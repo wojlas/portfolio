@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SidebarComponent } from "../../views/sidebar/sidebar.component";
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -11,4 +11,12 @@ import { CommonModule } from '@angular/common';
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [SidebarComponent, RouterOutlet, CommonModule]
 })
-export class PortfolioPageComponent { }
+export class PortfolioPageComponent implements OnInit {
+    public ngOnInit(): void {
+        const language = localStorage.getItem('selectedLanguage');
+
+        if (!language || !language?.length) {
+            localStorage.setItem('selectedLanguage', JSON.stringify('en'));
+        }
+    }
+ }
