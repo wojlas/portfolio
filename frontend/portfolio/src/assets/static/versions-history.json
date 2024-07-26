@@ -1,0 +1,21 @@
+{
+  "versions": [
+    {
+      "version": "0.0.8",
+      "whatsNew": "Bug fixes: scroll bar in about page, increase size of foreign services links icons, hide unnecessary features temporary. Implement version log dictionary."
+    },
+    
+    {
+      "version": "0.0.7",
+      "whatsNew": "Fixed bug with scrolling on mobile version. Default language bug fixed."
+    },
+    {
+      "version": "0.0.2 - 0.0.6",
+      "whatsNew": "Deploy automatization with bash command tests."
+    },
+    {
+      "version": "0.0.1",
+      "whatsNew": "First deployed version. About, Contact, Projects, Project details pages."
+    }
+  ]
+}

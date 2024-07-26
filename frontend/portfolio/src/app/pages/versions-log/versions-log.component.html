@@ -1,0 +1,6 @@
+<div class="d-flex flex-column gap-8 h-100 overflow-auto">
+  <div class="d-flex flex-column gap-4 p-16" *ngFor="let version of log$ | async">
+    <label class="bolder">Version: {{ version.version }}</label>
+    <span><label class="bolder">Changes: </label> {{ version.whatsNew }}</span>
+  </div>
+</div>

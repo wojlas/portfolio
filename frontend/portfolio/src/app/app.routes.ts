@@ -19,6 +19,10 @@ export const routes: Routes = [
         loadChildren: () => import('./submodules/projects/projects.routes').then(m => m.routes)
       },
       {
+        path: 'versions',
+        loadComponent: () => import('./pages/versions-log/versions-log.component').then(m => m.VersionsLogComponent)
+      },
+      {
         path: '**',
         redirectTo: 'about'
       }
