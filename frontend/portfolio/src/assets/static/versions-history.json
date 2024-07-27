@@ -1,10 +1,13 @@
 {
   "versions": [
     {
+      "version": "0.0.9",
+      "whatsNew": "New feature: filters for mobile on the bottom. Small bugfixes."
+    },
+    {
       "version": "0.0.8",
       "whatsNew": "Bug fixes: scroll bar in about page, increase size of foreign services links icons, hide unnecessary features temporary. Implement version log dictionary."
     },
-    
     {
       "version": "0.0.7",
       "whatsNew": "Fixed bug with scrolling on mobile version. Default language bug fixed."
