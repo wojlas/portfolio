@@ -1,6 +1,6 @@
 <div class="d-flex flex-column gap-4">
   <div
-   class="d-flex align-items-center justify-content-start px-16 py-4 pointer no-select b-radius-4 w-100"
+   class="d-flex align-items-center justify-content-start px-16 py-4 pointer no-select b-radius-4 w-100 item"
    [ngClass]="isActive() ? 'b-grey-4' : 'b-grey-1'"
    (click)="filterByLanguage()"
   >
@@ -10,7 +10,7 @@
     <div class="d-flex flex-column gap-4 ml-16">
       @for (framework of frameworksList(); track $index) {
         <div
-          class="d-flex align-items-center justify-content-start px-16 py-4 pointer no-select b-grey-1 b-radius-4 w-100"
+          class="d-flex align-items-center justify-content-start px-16 py-4 pointer no-select b-grey-1 b-radius-4 w-100 item"
           [ngClass]="activeFramework() && activeFramework() === framework ? 'b-grey-4' : 'b-grey-1'"
           (click)="filterByFramework(framework)"
         >

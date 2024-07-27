@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, input, signal } from '@angular/core';
 import { SingleFilterComponent } from '../single-filter/single-filter.component';
 import { LANGUAGES } from '../../core/enums';
 
@@ -14,4 +14,5 @@ export class FiltersWrapperComponent {
   @HostBinding('style.min-width') hostWidth = 'calc(100% - 40px)';
   
   public languagesList = signal(Object.values(LANGUAGES));
+  public bolderOptions = input<boolean>(false);
 }

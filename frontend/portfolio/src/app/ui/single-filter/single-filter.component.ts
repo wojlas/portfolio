@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnDestroy, OnInit, inject, input, signal } from '@angular/core';
 import { CommonModule, NgTemplateOutlet } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter, map } from 'rxjs';
@@ -15,6 +15,8 @@ import { ProjectsHelperService } from '../../core/services/projects-helper.servi
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SingleFilterComponent implements OnInit, OnDestroy {
+  @HostBinding('class.bolder-tab')
+  public bolderTab = input<boolean>(false);
   public language = input.required<LANGUAGES>();
 
   public isActive = signal(false);

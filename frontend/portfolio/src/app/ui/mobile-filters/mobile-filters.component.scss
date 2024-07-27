@@ -5,10 +5,46 @@
   z-index: 7;
   padding: 4px 16px;
   border-top-right-radius: 5px;
-  transition: width .3s;
+  transition-duration: .3s;
+  width: 68px;
+
+  &.open {
+    width: 100%;
+  }
 
   i {
     font-size: 36px;
     color: var(--grey-2);
+  }
+
+  &__menu {
+    display: inline-flex;
+    flex: 0 0 0;
+    overflow: hidden;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity .3s;
+
+    &.open {
+      flex: 1 0 auto;
+      opacity: 1;
+    }
+
+    .filters {
+      .filters-wrapper {
+        bottom: 4px;
+        right: 4px;
+        background-color: var(--blue-grey-1);
+        padding: 4px;
+        min-width: 190px !important;
+        width: 190px;
+      }
+    }
+
+    &.projects-page-view {
+      .lang {
+        transform: translateX(-190px);
+      }
+    }
   }
 }
