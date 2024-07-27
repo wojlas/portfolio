@@ -53,6 +53,10 @@
   content: "\e945";
 }
 
-.icon-eye::before {
+.icon-eye:before {
   content: "\e9ce";
+}
+
+.icon-filters:before {
+  content: "\e992";
 }

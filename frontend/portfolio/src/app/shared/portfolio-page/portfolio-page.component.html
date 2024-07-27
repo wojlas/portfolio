@@ -4,5 +4,8 @@
   </div>
   <div class="page__content">
     <router-outlet></router-outlet>
+    @if (showMobileFilters()) {
+      <app-mobile-filters/>
+    }
   </div>
 </div>

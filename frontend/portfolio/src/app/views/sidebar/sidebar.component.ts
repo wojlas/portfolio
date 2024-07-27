@@ -4,6 +4,7 @@ import { TranslatePipe } from "../../core/pipes/translate.pipe";
 import { Observable, filter, map, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FiltersWrapperComponent } from "../../ui/filters-wrapper/filters-wrapper.component";
+import { PortfolioPageUtils } from '../../core/utils/PortfolioPageUtils';
 
 @Component({
     selector: 'app-sidebar',
@@ -35,8 +36,7 @@ export class SidebarComponent implements OnInit {
 
   public setLanguage(val: 'en' | 'pl'): void {
     this.language.set(val);
-    localStorage.setItem('selectedLanguage', JSON.stringify(val));
-    window.location.reload();
+    PortfolioPageUtils.setLanguageToLocalStorage(val);
   }
   
   private setIsProjectsActive(): void {

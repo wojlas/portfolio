@@ -1,0 +1,14 @@
+.mobile-filters {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 7;
+  padding: 4px 16px;
+  border-top-right-radius: 5px;
+  transition: width .3s;
+
+  i {
+    font-size: 36px;
+    color: var(--grey-2);
+  }
+}

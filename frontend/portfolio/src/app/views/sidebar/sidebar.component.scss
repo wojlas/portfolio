@@ -3,7 +3,7 @@
   
   &__nav, .wrapper {
     width: calc(100% - 40px);
-    min-width: 110px;
+    min-width: fit-content;
   }
 
   .wrapper {
@@ -25,26 +25,19 @@
   .sidebar {
     display: inline-flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     height: auto;
+    width: 100%;
     justify-content: flex-start;
+    padding: 16px 4px;
 
     &__nav, &__lang {
-      width: auto;
+      width: 100%;
       text-align: center;
     }
 
-    .more-btn {
-      display: block;
-    }
-
     .wrapper {
-      height: 0;
-      overflow: hidden;
-
-      &.show {
-        height: auto;
-      }
+      display: none;
     }
   }
 }
