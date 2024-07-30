@@ -8,7 +8,7 @@
       </div>
       <div class="filters">
         @if (expanded() && (isProjectsPage$ | async)) {
-          <app-filters-wrapper class="position-absolute filters-wrapper"/>
+          <app-filters-wrapper class="position-absolute filters-wrapper" [bolderOptions]="true"/>
         }
       </div>
     </div>
