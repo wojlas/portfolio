@@ -1,5 +1,5 @@
 <div class="d-flex flex-column w-100 h-100 p-16">
-  <div class="d-inline-flex align-items-center justify-content-between w-100 pb-8 px-16">
+  <div class="d-inline-flex align-items-center justify-content-between w-100 pb-8">
     <button class="back-btn">
       <i class="icon-arrow-left f-blue-grey-5"></i>
       <span class="f-blue-grey-5" [routerLink]="prevUrl">{{ 'backToList' | translate }}</span>
@@ -8,38 +8,41 @@
       <i class="icon-github pointer bolder gh-icon" (click)="openGithubRepository()"></i>
     }
   </div>
-  <div class="d-flex flex-column w-100 overflow-auto py-8 gap-row-16 position-relative">
-    <div class="position-sticky p-8">
+  <div class="d-flex flex-column w-100 pb-8 project-wrapper">
+    <div class="px-8">
       <h2 class="f-blue-grey-5">{{ project().name }}</h2>
     </div>
-    <app-project-details-section [sectionTitle]="'basicInformations' | translate">
-      <div class="d-flex flex-column w-100 py-16">
-        <div class="section">
-          <span class="f-grey-4">{{ 'languages' | translate }}</span>
-          <div class="section__value">
-            @for (language of project().languages; track $index) {
-              <span class="f-grey-5">{{ language }}</span>
-            }
+    <div class="d-flex flex-column overflow-auto gap-8">
+      <app-project-details-section [sectionTitle]="'basicInformations' | translate">
+        <div class="d-flex flex-column w-100 py-16">
+          <div class="section">
+            <span class="f-grey-4">{{ 'languages' | translate }}</span>
+            <div class="section__value">
+              @for (language of project().languages; track $index) {
+                <span class="f-grey-5">{{ language }}</span>
+              }
+            </div>
+          </div>
+          <div class="section">
+            <span class="f-grey-4">{{ 'frameworks' | translate }}</span>
+            <div class="section__value">
+              @for (framework of project().frameworks; track $index) {
+                <span class="f-grey-5">{{ framework }}</span>
+              }
+            </div>
+          </div>
+          <div class="section">
+            <span class="f-grey-4">{{ 'releaseDate' | translate }}</span>
+            <span class="section__value f-grey-5">{{ project().releaseDate }}</span>
           </div>
         </div>
-        <div class="section">
-          <span class="f-grey-4">{{ 'frameworks' | translate }}</span>
-          <div class="section__value">
-            @for (framework of project().frameworks; track $index) {
-              <span class="f-grey-5">{{ framework }}</span>
-            }
-          </div>
-        </div>
-        <div class="section">
-          <span class="f-grey-4">{{ 'releaseDate' | translate }}</span>
-          <span class="section__value f-grey-5">{{ project().releaseDate }}</span>
-        </div>
-      </div>
-    </app-project-details-section>
-    <app-project-details-section [sectionTitle]="'description' | translate">
-      <div class="d-flex w-100 py-16 f-grey-5">{{ project().descriptionPl | emptyDash }}</div>
-    </app-project-details-section>
-    <!-- <app-project-details-section sectionTitle="DEMO">
+      </app-project-details-section>
+      <app-project-details-section [sectionTitle]="'description' | translate">
+        <div class="d-flex w-100 py-16 f-grey-5">{{ project().descriptionPl | emptyDash }}</div>
+      </app-project-details-section>
+      <!-- <app-project-details-section sectionTitle="DEMO">
+
+    </div>
       demo
     </app-project-details-section> -->
   </div>
