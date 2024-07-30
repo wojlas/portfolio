@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-contact',
@@ -8,7 +9,20 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './contact.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
+  private readonly _title = inject(Title);
+
+  public ngOnInit(): void {
+    const language = localStorage.getItem('selectedLanguage');
+    let parsedLanguage!: string;
+
+    if (language) {
+      parsedLanguage = JSON.parse(language);
+    }
+    
+    
+    this._title.setTitle(!parsedLanguage || parsedLanguage === 'en' ? 'Contact | wl-portfolio.pl' : 'Kontakt | wl-portfolio.pl');
+  }
   public openGithub(): void {
     window.open('https://github.com/wojlas', '_blank');
   }

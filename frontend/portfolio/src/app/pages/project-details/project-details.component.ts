@@ -6,6 +6,7 @@ import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { ProjectDetailsSectionComponent } from '../../ui/project-details-section/project-details-section.component';
 import { EmptyDashPipe } from '../../core/pipes/empty-dash.pipe';
 import { PROJECTS } from '../../core/constants';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-project-details',
@@ -20,10 +21,13 @@ export class ProjectDetailsComponent implements OnInit {
   public prevUrl = localStorage.getItem('prevUrl') ?? 'projects';
 
   private readonly _router = inject(Router);
+  private readonly _title = inject(Title);
 
   public ngOnInit(): void {
     const id = +decodeURIComponent(this._router.url).split('id=')[1];
+
     this.project.set(Object.values(PROJECTS).find(x => x.id === id) ?? {} as IProject);
+    this._title.setTitle(`${ this.project().name } | wl-portfolio.pl`);
   }
 
   public openGithubRepository(): void {

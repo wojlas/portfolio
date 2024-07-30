@@ -7,6 +7,7 @@ import { PROJECTS } from '../../core/constants';
 import { LANGUAGES, FRAMEWORKS } from '../../core/enums';
 import { map } from 'rxjs';
 import { ProjectsHelperService } from '../../core/services/projects-helper.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-projects',
@@ -31,7 +32,19 @@ export class ProjectsComponent implements OnInit {
     })
   );
 
+  private readonly _title = inject(Title);
+
   public ngOnInit(): void {
+    const language = localStorage.getItem('selectedLanguage');
+    let parsedLanguage!: string;
+
+    if (language) {
+      parsedLanguage = JSON.parse(language);
+    }
+
+    
+    this._title.setTitle(!parsedLanguage || parsedLanguage === 'en' ? 'Projects | wl-portfolio.pl' : 'Projekty | wl-portfolio.pl');
     localStorage.removeItem('prevUrl');
+    
   }
 }

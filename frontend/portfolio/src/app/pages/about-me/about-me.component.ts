@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
 import { TranslatePipe } from "../../core/pipes/translate.pipe";
+import { Title } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-about-me',
@@ -12,6 +13,8 @@ import { TranslatePipe } from "../../core/pipes/translate.pipe";
 export class AboutMeComponent implements OnInit {
     public language = signal<'en' | 'pl'>('en');
 
+    private readonly _title = inject(Title);
+
     public ngOnInit(): void {
         const storedLanguage = localStorage.getItem('selectedLanguage');
 
@@ -20,5 +23,7 @@ export class AboutMeComponent implements OnInit {
         } else {
             localStorage.setItem('selectedLanguage', JSON.stringify('en'));
         }
+
+        this._title.setTitle(this.language() === 'en' ? 'About | wl-portfolio.pl' : 'O mnie | wl-portfolio.pl');
     }
 }
