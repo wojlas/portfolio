@@ -29,8 +29,7 @@
 }
 
 .gh-icon {
-  font-size: 22px;
-  line-height: 24px;
+  font-size: 36px;
   transition-duration: .3s;
   
   &:hover {
@@ -40,4 +39,11 @@
 
 .project-wrapper {
   height: calc(100% - 36px);
+
+  &__sections {
+    &::-webkit-scrollbar-track {
+      margin-top: 96px;
+      margin-bottom: 8px;
+    }
+  }
 }

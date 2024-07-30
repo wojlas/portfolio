@@ -19,14 +19,17 @@ import { Title } from '@angular/platform-browser';
 export class ProjectDetailsComponent implements OnInit {
   public project = signal<IProject>({} as IProject);
   public prevUrl = localStorage.getItem('prevUrl') ?? 'projects';
+  public language = signal<'en' | 'pl'>('en');
 
   private readonly _router = inject(Router);
   private readonly _title = inject(Title);
 
   public ngOnInit(): void {
+    const language = localStorage.getItem('selectedLanguage');
     const id = +decodeURIComponent(this._router.url).split('id=')[1];
 
     this.project.set(Object.values(PROJECTS).find(x => x.id === id) ?? {} as IProject);
+    this.language.set(language ? JSON.parse(language) : 'en');
     this._title.setTitle(`${ this.project().name } | wl-portfolio.pl`);
   }
 

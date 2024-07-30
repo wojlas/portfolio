@@ -13,7 +13,7 @@ $values: 0, 2, 4, 8, 16, 24;
   .pl-#{ $value } { padding-left: #{ $value }px }
   .pr-#{ $value } { padding-right: #{ $value }px }
   .pt-#{ $value } { padding-top: #{ $value }px }
-  .pb-#{ $value } { padding-bottom: #{ $value } }
+  .pb-#{ $value } { padding-bottom: #{ $value }px }
   .px-#{ $value } { padding-left: #{ $value }px; padding-right: #{ $value }px }
   .py-#{ $value } { padding-top: #{ $value }px; padding-bottom: #{ $value }px }
   

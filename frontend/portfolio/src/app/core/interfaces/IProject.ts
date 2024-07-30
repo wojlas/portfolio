@@ -8,5 +8,5 @@ export interface IProject {
   releaseDate: string;
   repositoryLink: string;
   descriptionPl: string;
-  descriptionEN: string;
+  descriptionEn: string;
 }
