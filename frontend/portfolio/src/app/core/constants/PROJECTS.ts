@@ -59,30 +59,56 @@ export const PROJECTS: Record<Projects, IProject> = {
     name: 'Check out the movie',
     languages: [LANGUAGES.JAVA_SCRIPT, LANGUAGES.HTML, LANGUAGES.CSS],
     frameworks: [FRAMEWORKS.REACT],
-    releaseDate: '2022-02-28',
-    repositoryLink: '',
-    descriptionPl: 'Movie',
-    descriptionEn: 'Movie',
+    releaseDate: '2022-03-21',
+    repositoryLink: 'https://github.com/wojlas/Check-out-the-movie',
+    descriptionPl: `Aplikacja React wykorzystująca managera stanu jakim jest Redux, a także React router. Był to projekt końcowy kursu CodersLab JavaScript and React developer.
+     Aplikacja wykorzystuje zewnętrzne api do pobrania listy filmów. 
+     Umożliwia przeglądanie ich listy korzystając z filtrów, a także udostępnia więcej informacji na temat danego filmu po kliknięciu w okładkę.
+     Ponadto daje możliwość dodawania filmów do list 'Do obejrzenia' i 'Obejrzane'. Niestety, aplikacja nie korzysta z bazy danych więc po odświeżeniu strony wracamy do stanu początkowego.
+     Jest to więc tylko pokaz tego co potrafiłem zrobić z Reactem po około miesięcznym kursie.`,
+    descriptionEn: `A React application using Redux for state management and React Router. This was the final project for the CodersLab JavaScript and React Developer course.
+     The application uses an external API to fetch a list of movies. It allows users to browse the list using filters and provides more information about each movie upon clicking the cover. 
+     Additionally, it enables users to add movies to 'To Watch' and 'Watched' lists.
+      Unfortunately, the application does not use a database, so after refreshing the page, it returns to the initial state.
+       Therefore, it's just a demonstration of what I was able to accomplish with React after about a month-long course.`,
   },
   [Projects.CHARITY_DONATION]: {
     id: 4,
     name: 'Charity donation',
     languages: [LANGUAGES.PYTHON, LANGUAGES.HTML, LANGUAGES.JAVA_SCRIPT, LANGUAGES.CSS],
     frameworks: [FRAMEWORKS.DJANGO],
-    releaseDate: '2021-11-20',
-    repositoryLink: '',
-    descriptionPl: 'Donation',
-    descriptionEn: 'Donation',
+    releaseDate: '2022-01-24',
+    repositoryLink: 'https://github.com/wojlas/Charity-Donation',
+    descriptionPl: `Projekt tworzony w ramach programu PortfolioLab. Było to pomiędzy kursami Pythona i Reacta. Jest to aplikacja Django z bardzo dużym wsparciem JS.
+    Aplikacja polega na wysyłaniu darów charytatywnych do poszczególnych fundacji. Każda fundacja przyjmuje określone typy darów (ubrania, żywność, itp.).
+    W projekcie można zauważyć bardzo ciekawe rozłożenie funkcjonalności. Django zajmuje się magazynowaniem danych i wyświetlaniem ich na start.
+    JavaScript odpowiada bardziej za UX i walidację, ukrywając niepotrzebne elementy. 
+    Porównując kod JS z tego projektu z chociażby projektem Check out the movie, można zauważyć jak dużo nauczyłem się podczas kursu JS, 
+    myślę, że z tą wiedzą w tym projekcie, napisał bym kod JS wielokrotnie bardziej wydajny i czytelny. Był oto także fajne doświadczenie, pokazujące, że nawet w podstawowym Django,
+    kliknięcie przycisku nie musi od razu przeładowywać całej strony. Myślę, że to właśnie w tym projekcie zauważyłem pełną moc JavaScript i jego wpływ na wygląd i działanie strony internetowej.`,
+    descriptionEn: `A project created as part of the PortfolioLab program.
+     It was done between the Python and React courses. This is a Django application with extensive JavaScript support.
+      The application focuses on sending charitable donations to specific foundations, each accepting certain types of donations (clothes, food, etc.).
+       The project features an interesting distribution of functionalities: Django handles data storage and initial display, while JavaScript is responsible for UX and validation,
+        hiding unnecessary elements. Comparing the JavaScript code from this project with the "Check out the movie" project, you can see how much I've learned during the JavaScript course.
+         With that knowledge, I could now write JavaScript code that is much more efficient and readable. It was also a great experience, demonstrating that even with basic Django,
+          clicking a button doesn't have to reload the entire page.
+     I think this project was where I truly realized the full potential of JavaScript and its impact on the look and functionality of a website.`,
   },
   [Projects.CONFERENCE_ROOMS]: {
     id: 5,
     name: 'Conference rooms',
     languages: [LANGUAGES.PYTHON, LANGUAGES.HTML, LANGUAGES.CSS],
     frameworks: [FRAMEWORKS.DJANGO],
-    releaseDate: '2021-07-23',
-    repositoryLink: '',
-    descriptionPl: 'Rooms',
-    descriptionEn: 'Rooms',
+    releaseDate: '2021-06-25',
+    repositoryLink: 'https://github.com/wojlas/Conference-rooms',
+    descriptionPl: `Aplikacja Django do zarządzania siecią sal konferencyjnych. Do dyspozycji dostajemy zestaw sal o określonych parametrach (pojemność, dostęp do rzutnika, itp).
+    Aplikacja pozwala zarezerwować salę na określony czas, dbając o to, aby dwie osoby nie mogły wynająć tej samej sali na ten sam termin. Jest to mój pierwszy projekt Django pisany samodzielnie.
+    Pomimo tego, że jest bardzo podstawowy (raptem 3 widoki), bardzo miło wspominam pracę nad nim.`,
+    descriptionEn: `A Django application for managing a network of conference rooms.
+     Users have access to a set of rooms with specific features (capacity, access to a projector, etc.). 
+     The application allows users to book a room for a specific time, ensuring that two people cannot book the same room for the same time slot.
+     This is my first Django project that I developed independently. Although it's very basic (only three views), I have fond memories of working on it.`,
   },
   [Projects.TODO]: {
     id: 6,

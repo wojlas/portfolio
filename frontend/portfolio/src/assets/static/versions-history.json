@@ -1,6 +1,10 @@
 {
   "versions": [
     {
+      "version": "0.0.10",
+      "whatsNew": "Project details page styles fixes, global bugfixes, some projects descriptions."
+    },
+    {
       "version": "0.0.9",
       "whatsNew": "New feature: filters for mobile on the bottom. Small bugfixes."
     },

@@ -7,11 +7,28 @@
 
 .section-wrapper {
   border: 1px solid var(--grey-3);
-  transition-duration: .3s;
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows .4s ease-out;
 
   &.closed {
-    height: 0;
-    border: none;
+    grid-template-rows: 0fr;
+
+    ::ng-deep > div:first-of-type {
+      padding: 0;
+    }
+  }
+
+  ::ng-deep {
+    div:first-of-type {
+      overflow: hidden;
+      transition: .1s all ease;
+    }
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .header {
+    position: unset;
   }
 }

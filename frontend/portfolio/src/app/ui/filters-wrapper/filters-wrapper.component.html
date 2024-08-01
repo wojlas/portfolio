@@ -1,4 +1,4 @@
-<div class="filters-wrapper d-flex flex-column gap-4 overflow-auto ml-16">
+<div class="filters-wrapper d-flex flex-column gap-4 overflow-hidden ml-16">
   @for (language of languagesList(); track $index) {
     <app-single-filter [language]="language" [bolderTab]="bolderOptions()"/>
   }
