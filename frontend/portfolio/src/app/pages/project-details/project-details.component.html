@@ -1,8 +1,8 @@
 <div class="d-flex flex-column w-100 h-100 p-16">
   <div class="d-inline-flex align-items-center justify-content-between w-100 pb-8">
-    <button class="back-btn">
+    <button class="back-btn" [routerLink]="prevUrl">
       <i class="icon-arrow-left f-blue-grey-5"></i>
-      <span class="f-blue-grey-5" [routerLink]="prevUrl">{{ 'backToList' | translate }}</span>
+      <span class="f-blue-grey-5">{{ 'backToList' | translate }}</span>
     </button>
     @if (project().repositoryLink && project().repositoryLink.length) {
       <i class="icon-github pointer bolder gh-icon" (click)="openGithubRepository()"></i>
@@ -23,14 +23,16 @@
               }
             </div>
           </div>
-          <div class="section">
-            <span class="f-grey-4">{{ 'frameworks' | translate }}</span>
-            <div class="section__value">
-              @for (framework of project().frameworks; track $index) {
-                <span class="f-grey-5">{{ framework }}</span>
-              }
+          @if (project().frameworks?.length) {
+            <div class="section">
+              <span class="f-grey-4">{{ 'frameworks' | translate }}</span>
+              <div class="section__value">
+                @for (framework of project().frameworks; track $index) {
+                  <span class="f-grey-5">{{ framework }}</span>
+                }
+              </div>
             </div>
-          </div>
+          }
           <div class="section">
             <span class="f-grey-4">{{ 'releaseDate' | translate }}</span>
             <span class="section__value f-grey-5">{{ project().releaseDate }}</span>

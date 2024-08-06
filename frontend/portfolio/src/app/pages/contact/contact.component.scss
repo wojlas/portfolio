@@ -64,3 +64,9 @@
     }
   }
 }
+
+@media screen and (max-height: 325px) {
+  .links {
+    transform: translate(-200px, -52px);
+  }
+}

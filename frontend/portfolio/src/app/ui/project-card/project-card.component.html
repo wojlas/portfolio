@@ -11,12 +11,14 @@
       }
     </div>
   </div>
-  <div class="project-card__section">
-    <span class="f-grey-4">{{ 'frameworks' | translate }}</span>
-    <div class="project-card__section__value">
-      @for (framework of project().frameworks; track $index) {
-        <span class="f-grey-5">{{ framework }}</span>
-      }
+  @if (project().frameworks?.length) {
+    <div class="project-card__section">
+      <span class="f-grey-4">{{ 'frameworks' | translate }}</span>
+      <div class="project-card__section__value">
+        @for (framework of project().frameworks; track $index) {
+          <span class="f-grey-5">{{ framework }}</span>
+        }
+      </div>
     </div>
-  </div>
+  }
 </div>
