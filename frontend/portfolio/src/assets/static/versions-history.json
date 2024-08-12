@@ -1,6 +1,10 @@
 {
   "versions": [
     {
+      "version": "0.1.12",
+      "whatsNew": "Bug in mobile view where filters were above content has been fixed"
+    },
+    {
       "version": "0.0.12",
       "whatsNew": "Bug for horizontal mobile screens fixed. Details page for each project is completed."
     },

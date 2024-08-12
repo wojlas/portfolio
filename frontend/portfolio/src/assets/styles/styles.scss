@@ -121,3 +121,9 @@ body {
   background-color: #D6DBDF;
   border-radius: 4px;
 }
+
+@media screen and (max-width: 480px) {
+  .scrollable-wrapper {
+    padding-bottom: 46px;
+  }
+}

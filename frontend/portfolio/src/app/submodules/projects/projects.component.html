@@ -1,4 +1,4 @@
-<div class="d-flex flex-column p-16 gap-16 h-100 overflow-auto">
+<div class="d-flex flex-column p-16 gap-16 h-100 overflow-auto scrollable-wrapper">
   @for (project of projectsList$ | async; track project) {
     <app-project-card [project]="project"/>
   }
