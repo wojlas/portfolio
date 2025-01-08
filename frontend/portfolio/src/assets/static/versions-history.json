@@ -1,6 +1,10 @@
 {
   "versions": [
     {
+      "version": "0.2.0",
+      "whatsNew": "New email attached, pdf handle, bugfix"
+    },
+    {
       "version": "0.1.12",
       "whatsNew": "Bug in mobile view where filters were above content has been fixed"
     },

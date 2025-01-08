@@ -11,5 +11,6 @@ export enum PROJECTS {
   GUESS_THE_NUMBER_FLASK = 'Guess the number flask',
   ANOTHER_GUESS_THE_NUMBER = 'Another guess the number',
   DICE = 'Dice',
-  CONFERENCE_ROOMS = 'Conference rooms'
+  CONFERENCE_ROOMS = 'Conference rooms',
+  CHATTLY = 'Chattly'
 }

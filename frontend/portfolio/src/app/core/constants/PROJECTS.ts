@@ -1,5 +1,5 @@
-import { FRAMEWORKS, LANGUAGES, PROJECTS as Projects } from "../enums";
-import { IProject } from "../interfaces";
+import {FRAMEWORKS, LANGUAGES, PROJECTS as Projects} from "../enums";
+import {IProject} from "../interfaces";
 
 export const PROJECTS: Record<Projects, IProject> = {
   [Projects.PORTFOLIO]: {
@@ -62,12 +62,12 @@ export const PROJECTS: Record<Projects, IProject> = {
     releaseDate: '2022-03-21',
     repositoryLink: 'https://github.com/wojlas/Check-out-the-movie',
     descriptionPl: `Aplikacja React wykorzystująca managera stanu jakim jest Redux, a także React router. Był to projekt końcowy kursu CodersLab JavaScript and React developer.
-     Aplikacja wykorzystuje zewnętrzne api do pobrania listy filmów. 
+     Aplikacja wykorzystuje zewnętrzne api do pobrania listy filmów.
      Umożliwia przeglądanie ich listy korzystając z filtrów, a także udostępnia więcej informacji na temat danego filmu po kliknięciu w okładkę.
      Ponadto daje możliwość dodawania filmów do list 'Do obejrzenia' i 'Obejrzane'. Niestety, aplikacja nie korzysta z bazy danych więc po odświeżeniu strony wracamy do stanu początkowego.
      Jest to więc tylko pokaz tego co potrafiłem zrobić z Reactem po około miesięcznym kursie.`,
     descriptionEn: `A React application using Redux for state management and React Router. This was the final project for the CodersLab JavaScript and React Developer course.
-     The application uses an external API to fetch a list of movies. It allows users to browse the list using filters and provides more information about each movie upon clicking the cover. 
+     The application uses an external API to fetch a list of movies. It allows users to browse the list using filters and provides more information about each movie upon clicking the cover.
      Additionally, it enables users to add movies to 'To Watch' and 'Watched' lists.
       Unfortunately, the application does not use a database, so after refreshing the page, it returns to the initial state.
        Therefore, it's just a demonstration of what I was able to accomplish with React after about a month-long course.`,
@@ -82,8 +82,8 @@ export const PROJECTS: Record<Projects, IProject> = {
     descriptionPl: `Projekt tworzony w ramach programu PortfolioLab. Było to pomiędzy kursami Pythona i Reacta. Jest to aplikacja Django z bardzo dużym wsparciem JS.
     Aplikacja polega na wysyłaniu darów charytatywnych do poszczególnych fundacji. Każda fundacja przyjmuje określone typy darów (ubrania, żywność, itp.).
     W projekcie można zauważyć bardzo ciekawe rozłożenie funkcjonalności. Django zajmuje się magazynowaniem danych i wyświetlaniem ich na start.
-    JavaScript odpowiada bardziej za UX i walidację, ukrywając niepotrzebne elementy. 
-    Porównując kod JS z tego projektu z chociażby projektem Check out the movie, można zauważyć jak dużo nauczyłem się podczas kursu JS, 
+    JavaScript odpowiada bardziej za UX i walidację, ukrywając niepotrzebne elementy.
+    Porównując kod JS z tego projektu z chociażby projektem Check out the movie, można zauważyć jak dużo nauczyłem się podczas kursu JS,
     myślę, że z tą wiedzą w tym projekcie, napisał bym kod JS wielokrotnie bardziej wydajny i czytelny. Był oto także fajne doświadczenie, pokazujące, że nawet w podstawowym Django,
     kliknięcie przycisku nie musi od razu przeładowywać całej strony. Myślę, że to właśnie w tym projekcie zauważyłem pełną moc JavaScript i jego wpływ na wygląd i działanie strony internetowej.`,
     descriptionEn: `A project created as part of the PortfolioLab program.
@@ -106,7 +106,7 @@ export const PROJECTS: Record<Projects, IProject> = {
     Aplikacja pozwala zarezerwować salę na określony czas, dbając o to, aby dwie osoby nie mogły wynająć tej samej sali na ten sam termin. Jest to mój pierwszy projekt Django pisany samodzielnie.
     Pomimo tego, że jest bardzo podstawowy (raptem 3 widoki), bardzo miło wspominam pracę nad nim.`,
     descriptionEn: `A Django application for managing a network of conference rooms.
-     Users have access to a set of rooms with specific features (capacity, access to a projector, etc.). 
+     Users have access to a set of rooms with specific features (capacity, access to a projector, etc.).
      The application allows users to book a room for a specific time, ensuring that two people cannot book the same room for the same time slot.
      This is my first Django project that I developed independently. Although it's very basic (only three views), I have fond memories of working on it.`,
   },
@@ -190,5 +190,23 @@ export const PROJECTS: Record<Projects, IProject> = {
     Gracz wybiera liczbę rzutów, rodzaj kości i dodatkowy modyfikator, po czym gra zwraca wynik rzutu.`,
     descriptionEn: `A game simulating a dice roll. Part of a larger series of mini-games to be run in the terminal.
      The player chooses the number of rolls, the type of dice, and an additional modifier, and the game returns the result of the roll.`,
+  },
+  [Projects.CHATTLY]: {
+    id: 13,
+    name: 'Chattly',
+    languages: [LANGUAGES.TYPE_SCRIPT, LANGUAGES.JAVA_SCRIPT, LANGUAGES.HTML, LANGUAGES.CSS, LANGUAGES.SASS],
+    frameworks: [FRAMEWORKS.REACT],
+    releaseDate: '2024-11-22',
+    projectPage: 'https://apps.shopify.com/chattly',
+    descriptionPl: 'We współpracy z firmą AGInference stworzyłem warstwę UI dla Chattly - opartego o sztuczną inteligencję ' +
+      'asystenta sklepu internetowego. Wiedząc o dostępnym asortymencie potrafi doradzić w zakupach. ' +
+      'Warstwa frontend jest napisana w React. Do głównych cech aplikacji - z punktu widzenia programisty - należą: ' +
+      'możliwość personalizacji właściwie wszystkiego - od kolorów tła, elementów ui i przycisków, po możliwość ' +
+      'ustawiania svg jako tło. Niestety repozytorium jest prywatnym aktywem AGInference więc nie moge się nim tutaj podzielić.',
+    descriptionEn: 'In collaboration with AGInference, I created the UI layer for Chattly, an AI-based online shop assistant. ' +
+      'Knowing about the available product range, it is able to give shopping advice. The frontend layer is written in React. ' +
+      'The main features of the app - from a developer\'s point of view - include the ability to customise virtually ' +
+      'everything - from background colours, ui elements and buttons, to the ability to set svg as a background. ' +
+      'Unfortunately, the repository is a private asset of AGInference so I cannot share it here.'
   }
 };

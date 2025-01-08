@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription, filter, map } from 'rxjs';
 import { FRAMEWORKS } from '../../core/constants';
 import { LANGUAGES } from '../../core/enums';
-import { ProjectsHelperService } from '../../core/services/projects-helper.service';
+import { PortfolioService } from '../../core/services/portfolio.service';
 
 @Component({
   selector: 'app-single-filter',
@@ -25,7 +25,7 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
   private _sub!: Subscription;
 
   private readonly _router = inject(Router);
-  private readonly _projectsHelper = inject(ProjectsHelperService);
+  private readonly _projectsHelper = inject(PortfolioService);
 
   public ngOnInit(): void {
     this.setFilterElementState(decodeURIComponent(this._router.url));
@@ -74,6 +74,6 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this._sub?.unsubscribe();  
+    this._sub?.unsubscribe();
   }
 }

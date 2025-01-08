@@ -36,4 +36,8 @@ export class ProjectDetailsComponent implements OnInit {
   public openGithubRepository(): void {
     window.open(this.project().repositoryLink, '_blank');
   }
+
+  public openProjectPage(): void {
+    window.open(this.project().projectPage, '_blank');
+  }
 }

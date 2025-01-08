@@ -162,6 +162,7 @@ cython_debug/
 # js/ts/angular
 
 node-modules/
+.idea/
 
 SECRET_KEYS.py
 frontend/portfolio/deploy.sh

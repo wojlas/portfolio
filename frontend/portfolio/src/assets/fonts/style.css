@@ -25,30 +25,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-pencil:before {
-  content: "\e905";
-}
-.icon-cross:before {
-  content: "\ea0f";
-}
-.icon-checkmark:before {
-  content: "\ea10";
-}
-.icon-arrow-right:before {
-  content: "\ea34";
-}
 .icon-arrow-left:before {
   content: "\ea38";
 }
+
 .icon-github:before {
   content: "\eab0";
 }
+
 .icon-linkedin:before {
   content: "\eac9";
 }
+
 .icon-file-pdf:before {
   content: "\eadf";
 }
+
 .icon-email:before {
   content: "\e945";
 }
@@ -59,4 +51,8 @@
 
 .icon-filters:before {
   content: "\e992";
+}
+
+.icon-link:before {
+  content: "\e9cb";
 }

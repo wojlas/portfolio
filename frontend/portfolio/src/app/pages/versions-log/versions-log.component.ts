@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ProjectsHelperService } from '../../core/services/projects-helper.service';
+import { PortfolioService } from '../../core/services/portfolio.service';
 import { CommonModule } from '@angular/common';
 import { map, pluck, tap } from 'rxjs';
 
@@ -12,7 +12,7 @@ import { map, pluck, tap } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class VersionsLogComponent {
-  public readonly log$ = inject(ProjectsHelperService).getVersionsLog().pipe(
+  public readonly log$ = inject(PortfolioService).getVersionsLog().pipe(
     map(res => JSON.parse(res)),
     pluck('versions')
   );

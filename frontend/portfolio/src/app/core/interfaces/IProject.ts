@@ -6,7 +6,8 @@ export interface IProject {
   languages: LANGUAGES[];
   frameworks?: FRAMEWORKS[];
   releaseDate: string;
-  repositoryLink: string;
+  repositoryLink?: string;
   descriptionPl: string;
   descriptionEn: string;
+  projectPage?: string;
 }

@@ -4,8 +4,10 @@
       <i class="icon-arrow-left f-blue-grey-5"></i>
       <span class="f-blue-grey-5">{{ 'backToList' | translate }}</span>
     </button>
-    @if (project().repositoryLink && project().repositoryLink.length) {
+    @if (project().repositoryLink?.length) {
       <i class="icon-github pointer bolder gh-icon" (click)="openGithubRepository()"></i>
+    } @else if (project().projectPage?.length) {
+      <i class="icon-link pointer bolder gh-icon" (click)="openProjectPage()"></i>
     }
   </div>
   <div class="d-flex flex-column w-100 pb-8 project-wrapper">
