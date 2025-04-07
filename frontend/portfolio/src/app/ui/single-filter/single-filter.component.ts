@@ -67,7 +67,7 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
   private setActiveState(lang: string): void {
     if (lang === this.language()) {
       this.isActive.set(true);
-      this.frameworksList.set(Object.entries(FRAMEWORKS).filter(([key, value]) => value.includes(this.language())).map(x => x[0]) as string[]);
+      this.frameworksList.set(Object.values(FRAMEWORKS).filter((value) => value.includes(this.language())).map(x => x[0]) as string[]);
     } else {
       this.isActive.set(false);
     }

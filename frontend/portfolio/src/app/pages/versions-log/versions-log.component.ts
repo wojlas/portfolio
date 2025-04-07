@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PortfolioService } from '../../core/services/portfolio.service';
 import { CommonModule } from '@angular/common';
-import { map, pluck, tap } from 'rxjs';
+import { map, pluck } from 'rxjs';
 
 @Component({
   selector: 'app-versions-log',

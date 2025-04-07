@@ -1,0 +1,44 @@
+{
+  "versions": [
+    {
+      "version": "0.2.0",
+      "whatsNew": "New email attached, pdf handle, bugfix"
+    },
+    {
+      "version": "0.1.12",
+      "whatsNew": "Bug in mobile view where filters were above content has been fixed"
+    },
+    {
+      "version": "0.0.12",
+      "whatsNew": "Bug for horizontal mobile screens fixed. Details page for each project is completed."
+    },
+    {
+      "version": "0.0.11",
+      "whatsNew": "Styles fixes, another projects descriptions."
+    },
+    {
+      "version": "0.0.10",
+      "whatsNew": "Project details page styles fixes, global bugfixes, some projects descriptions."
+    },
+    {
+      "version": "0.0.9",
+      "whatsNew": "New feature: filters for mobile on the bottom. Small bugfixes."
+    },
+    {
+      "version": "0.0.8",
+      "whatsNew": "Bug fixes: scroll bar in about page, increase size of foreign services links icons, hide unnecessary features temporary. Implement version log dictionary."
+    },
+    {
+      "version": "0.0.7",
+      "whatsNew": "Fixed bug with scrolling on mobile version. Default language bug fixed."
+    },
+    {
+      "version": "0.0.2 - 0.0.6",
+      "whatsNew": "Deploy automatization with bash command tests."
+    },
+    {
+      "version": "0.0.1",
+      "whatsNew": "First deployed version. About, Contact, Projects, Project details pages."
+    }
+  ]
+}

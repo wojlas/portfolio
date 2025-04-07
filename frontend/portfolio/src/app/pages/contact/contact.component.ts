@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import {PortfolioService} from "../../core/services/portfolio.service";
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +12,6 @@ import {PortfolioService} from "../../core/services/portfolio.service";
 export class ContactComponent implements OnInit {
   private _lang!: 'en' | 'pl';
   private readonly _title = inject(Title);
-  private readonly _portfolioService = inject(PortfolioService);
 
   public ngOnInit(): void {
     const language = localStorage.getItem('selectedLanguage');

@@ -1,0 +1,18 @@
+@mixin project-section {
+  background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 16px;
+    gap: 4px;
+    user-select: none;
+    cursor: default;
+  
+    &__value {
+      display: inline-flex;
+      gap: 4px;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+}

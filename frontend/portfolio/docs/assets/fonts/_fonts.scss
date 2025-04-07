@@ -1,0 +1,14 @@
+@mixin icons {
+    font-family: 'icomoon' !important;
+    font-weight: 400 !important;
+    font-style: normal;
+    font-variant: normal;
+    display: inline-block;
+    text-transform: none;
+    line-height: 1;
+    opacity: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all 0.3s ease;
+    transform: rotate(0);
+}
