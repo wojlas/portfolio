@@ -4,5 +4,6 @@ export enum FRAMEWORKS {
   DJANGO_REST = 'DjangoRest',
   REACT = 'React',
   REACT_NATIVE = 'ReactNative',
-  ANGULAR = 'Angular'
+  ANGULAR = 'Angular',
+  NEXT = 'Next'
 }

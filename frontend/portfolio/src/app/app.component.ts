@@ -9,6 +9,4 @@ import { RouterOutlet } from '@angular/router';
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterOutlet]
 })
-export class AppComponent {
-  title = 'WL Portfolio';
-}
+export class AppComponent {}

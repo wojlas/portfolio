@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PortfolioService } from '../../core/services/portfolio.service';
 import { CommonModule } from '@angular/common';
-import { map, pluck } from 'rxjs';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-versions-log',
@@ -14,6 +14,6 @@ import { map, pluck } from 'rxjs';
 export class VersionsLogComponent {
   public readonly log$ = inject(PortfolioService).getVersionsLog().pipe(
     map(res => JSON.parse(res)),
-    pluck('versions')
+    map((res): { version: string, whatsNew: string }[] => res.versions)
   );
 }

@@ -1,10 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnDestroy, OnInit, inject, input, signal } from '@angular/core';
-import { CommonModule, NgTemplateOutlet } from '@angular/common';
-import { NavigationEnd, Router } from '@angular/router';
-import { Subscription, filter, map } from 'rxjs';
-import { FRAMEWORKS } from '../../core/constants';
-import { LANGUAGES } from '../../core/enums';
-import { PortfolioService } from '../../core/services/portfolio.service';
+import {ChangeDetectionStrategy, Component, inject, input, OnDestroy, OnInit, signal} from '@angular/core';
+import {CommonModule, NgTemplateOutlet} from '@angular/common';
+import {NavigationEnd, Router} from '@angular/router';
+import {filter, map, Subscription} from 'rxjs';
+import {FRAMEWORKS} from '../../core/constants';
+import {LANGUAGES, FRAMEWORKS as FrameworksEnum} from '../../core/enums';
+import {PortfolioService} from '../../core/services/portfolio.service';
 
 @Component({
   selector: 'app-single-filter',
@@ -67,7 +67,17 @@ export class SingleFilterComponent implements OnInit, OnDestroy {
   private setActiveState(lang: string): void {
     if (lang === this.language()) {
       this.isActive.set(true);
-      this.frameworksList.set(Object.values(FRAMEWORKS).filter((value) => value.includes(this.language())).map(x => x[0]) as string[]);
+      const filteredFrameworks: string[] = [];
+
+      for (let framework in FRAMEWORKS) {
+        const value = FRAMEWORKS[framework as FrameworksEnum];
+
+        if (value.includes(lang)) {
+          filteredFrameworks.push(framework);
+        }
+      }
+
+      this.frameworksList.set(filteredFrameworks);
     } else {
       this.isActive.set(false);
     }

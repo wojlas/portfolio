@@ -1,5 +1,5 @@
 <div class="filters-wrapper d-flex flex-column gap-4 overflow-hidden ml-16">
-  @for (language of languagesList(); track $index) {
+  @for (language of languagesList() | sortByElementsCount: FRAMEWROKS; track $index) {
     <app-single-filter [language]="language" [bolderTab]="bolderOptions()"/>
   }
 </div>

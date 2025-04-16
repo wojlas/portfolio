@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal }
 import { PortfolioPageUtils } from '../../core/utils/PortfolioPageUtils';
 import { FiltersWrapperComponent } from "../filters-wrapper/filters-wrapper.component";
 import { NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject, filter, map, Subscription, tap } from 'rxjs';
+import { BehaviorSubject, filter, map, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-mobile-filters',
@@ -17,7 +17,7 @@ export class MobileFiltersComponent implements OnInit, OnDestroy {
   public expanded = signal(false);
   public language = signal(JSON.parse(localStorage.getItem('selectedLanguage') ?? '"en"'));
   public isProjectsPage$ = new BehaviorSubject<boolean>(false);
-  
+
   private _sub$!: Subscription;
   private readonly _router = inject(Router);
 

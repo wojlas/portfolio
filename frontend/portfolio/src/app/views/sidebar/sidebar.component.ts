@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { TranslatePipe } from "../../core/pipes/translate.pipe";
-import { Observable, filter, map, tap } from 'rxjs';
+import { Observable, filter, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { FiltersWrapperComponent } from "../../ui/filters-wrapper/filters-wrapper.component";
 import { PortfolioPageUtils } from '../../core/utils/PortfolioPageUtils';
@@ -30,15 +30,11 @@ export class SidebarComponent implements OnInit {
     this.setIsProjectsActive();
   }
 
-  public toggleFilters(): void {
-    this.showFilters.set(!this.showFilters());
-  }
-
   public setLanguage(val: 'en' | 'pl'): void {
     this.language.set(val);
     PortfolioPageUtils.setLanguageToLocalStorage(val);
   }
-  
+
   private setIsProjectsActive(): void {
     this.isProjectsActive.set(this._router.url.startsWith('/projects'));
   }
