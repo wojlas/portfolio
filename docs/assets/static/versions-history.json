@@ -1,6 +1,10 @@
 {
   "versions": [
     {
+      "version": "1.0.0",
+      "whatsNew": "Languages as frameworks bug resolved, click on tile can open project details, disappearing list elements bug fix"
+    },
+    {
       "version": "0.2.0",
       "whatsNew": "New email attached, pdf handle, bugfix"
     },
