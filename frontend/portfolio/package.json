@@ -1,13 +1,14 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "bugfix": "ng patch && ng build"
+    "bugfix": "ng patch && ng build",
+    "postbuild": "cp ../../docs/index.html ../../docs/404.html"
   },
   "private": true,
   "dependencies": {
